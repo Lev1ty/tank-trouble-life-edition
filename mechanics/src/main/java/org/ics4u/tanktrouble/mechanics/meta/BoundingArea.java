@@ -1,4 +1,6 @@
-package org.ics4u.tanktrouble.mechanics;
+package org.ics4u.tanktrouble.mechanics.meta;
+
+import org.ics4u.tanktrouble.mechanics.meta.vectors.*;
 
 /**
  * bounding area

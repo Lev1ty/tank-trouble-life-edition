@@ -1,4 +1,4 @@
-package org.ics4u.tanktrouble.mechanics;
+package org.ics4u.tanktrouble.mechanics.meta;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,6 @@
-package org.ics4u.tanktrouble.mechanics;
+package org.ics4u.tanktrouble.mechanics.meta.vectors;
+
+import org.ics4u.tanktrouble.mechanics.meta.TankTroubleObject;
 
 /**
  * general vector class

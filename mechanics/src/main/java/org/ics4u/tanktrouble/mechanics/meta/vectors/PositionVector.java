@@ -1,4 +1,4 @@
-package org.ics4u.tanktrouble.mechanics;
+package org.ics4u.tanktrouble.mechanics.meta.vectors;
 
 /**
  * position vector

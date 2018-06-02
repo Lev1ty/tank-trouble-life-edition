@@ -1,4 +1,4 @@
-package org.ics4u.tanktrouble.mechanics;
+package org.ics4u.tanktrouble.mechanics.tanks;
 
 /**
  * AI controlled tank
