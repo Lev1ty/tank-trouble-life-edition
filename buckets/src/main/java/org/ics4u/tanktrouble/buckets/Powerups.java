@@ -11,9 +11,8 @@ public class Powerups extends TankTroubleBucket {
     /**
      * value constructor
      */
-    public Powerups(int powerups) {
-        for (int i = 0; i < powerups; i++)
-            add();
+    public Powerups(int number) {
+        super(number);
     }
 
     @Override

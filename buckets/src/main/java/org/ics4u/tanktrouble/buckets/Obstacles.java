@@ -11,9 +11,8 @@ public class Obstacles extends TankTroubleBucket {
     /**
      * value constructor
      */
-    public Obstacles(int obstacles) {
-        for (int i = 0; i < obstacles; i++)
-            add();
+    public Obstacles(int number) {
+        super(number);
     }
 
     @Override

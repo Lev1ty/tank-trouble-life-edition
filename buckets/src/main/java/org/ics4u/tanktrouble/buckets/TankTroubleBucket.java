@@ -15,14 +15,22 @@ public abstract class TankTroubleBucket {
     /**
      * game objects container
      */
-    public static List<TankTroubleObject> objects;
+    public static List<TankTroubleObject> objects = new ArrayList<>();
 
     /**
      * default constructor
      */
-    public TankTroubleBucket() {
-        initialize();
+    protected TankTroubleBucket() {
         log.info("bucket object construction successful");
+    }
+
+    /**
+     * value constructor
+     */
+    protected TankTroubleBucket(int number) {
+        this();
+        for (int i = 0; i < number; i++)
+            add();
     }
 
     /**
@@ -42,13 +50,15 @@ public abstract class TankTroubleBucket {
     /**
      * re-initialize objects
      */
-    public static void initialize() {
+    public static void reset() {
         objects = new ArrayList<>();
     }
 
     public static void main(String[] args) {
         TankTroubleBucket tanks = new Tanks(3, 10);
         TankTroubleBucket powerups = new Powerups(50);
+        TankTroubleBucket obstacles = new Obstacles(20);
+        TankTroubleBucket bullets = new Bullets(20);
         System.out.println(objects.size());
         TankTroubleObject object = objects.get(0);
         objects.remove(object);
