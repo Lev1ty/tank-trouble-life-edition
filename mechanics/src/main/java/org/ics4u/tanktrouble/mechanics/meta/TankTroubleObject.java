@@ -12,12 +12,12 @@ public abstract class TankTroubleObject {
     /**
      * global logger
      */
-    private final Logger log = LoggerFactory.getLogger(getClass());
+    protected final Logger log = LoggerFactory.getLogger(getClass());
 
     /**
      * default constructor
      */
     public TankTroubleObject() {
-        log.info("construction successful");
+        log.info("mechanics object construction successful");
     }
 }

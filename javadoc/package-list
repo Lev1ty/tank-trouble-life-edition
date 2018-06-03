@@ -1,1 +1,7 @@
-org.ics4u.tanktrouble.mechanics
+org.ics4u.tanktrouble.buckets
+org.ics4u.tanktrouble.mechanics.bullets
+org.ics4u.tanktrouble.mechanics.meta
+org.ics4u.tanktrouble.mechanics.meta.vectors
+org.ics4u.tanktrouble.mechanics.obstacles
+org.ics4u.tanktrouble.mechanics.powerups
+org.ics4u.tanktrouble.mechanics.tanks
