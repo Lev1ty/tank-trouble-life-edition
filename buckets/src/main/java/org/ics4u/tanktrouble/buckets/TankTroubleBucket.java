@@ -9,13 +9,13 @@ import java.util.List;
 
 public abstract class TankTroubleBucket {
     /**
-     * global logger
-     */
-    protected final Logger log = LoggerFactory.getLogger(getClass());
-    /**
      * game objects container
      */
     public static List<TankTroubleObject> objects = new ArrayList<>();
+    /**
+     * global logger
+     */
+    protected final Logger log = LoggerFactory.getLogger(getClass());
 
     /**
      * default constructor
@@ -34,6 +34,13 @@ public abstract class TankTroubleBucket {
     }
 
     /**
+     * re-initialize objects
+     */
+    public static void reset() {
+        objects = new ArrayList<>();
+    }
+
+    /**
      * add object
      */
     public abstract void add();
@@ -45,23 +52,5 @@ public abstract class TankTroubleBucket {
         for (int i = 0; i < objects.size(); i++)
             if (objects.get(i) == object)
                 objects.remove(i);
-    }
-
-    /**
-     * re-initialize objects
-     */
-    public static void reset() {
-        objects = new ArrayList<>();
-    }
-
-    public static void main(String[] args) {
-        TankTroubleBucket tanks = new Tanks(3, 10);
-        TankTroubleBucket powerups = new Powerups(50);
-        TankTroubleBucket obstacles = new Obstacles(20);
-        TankTroubleBucket bullets = new Bullets(20);
-        System.out.println(objects.size());
-        TankTroubleObject object = objects.get(0);
-        objects.remove(object);
-        System.out.println(objects.size());
     }
 }

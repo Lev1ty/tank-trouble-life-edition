@@ -9,15 +9,19 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>buckets</artifactId>
+    <artifactId>graphics</artifactId>
+
     <dependencies>
         <dependency>
-            <groupId>ics12</groupId>
-            <artifactId>mechanics</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>RELEASE</version>
         </dependency>
     </dependencies>
-
 
 </project>

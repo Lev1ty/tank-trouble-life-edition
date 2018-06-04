@@ -14,6 +14,7 @@ public class Bullets extends TankTroubleBucket {
     public Bullets(int number) {
         super(number);
     }
+
     @Override
     public void add() {
         objects.add(new Standard());

@@ -27,6 +27,7 @@ public abstract class BoundingArea extends TankTroubleObject {
 
     /**
      * center-to-center distance
+     *
      * @param other reference
      * @return distance
      */

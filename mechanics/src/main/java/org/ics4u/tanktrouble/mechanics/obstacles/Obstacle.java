@@ -1,7 +1,6 @@
 package org.ics4u.tanktrouble.mechanics.obstacles;
 
 import org.ics4u.tanktrouble.mechanics.meta.BoundingCircle;
-import org.ics4u.tanktrouble.mechanics.powerups.Powerup;
 import org.reflections.Reflections;
 
 import java.util.Random;
@@ -24,7 +23,7 @@ public abstract class Obstacle extends BoundingCircle {
         int index = new Random().nextInt(subclasses.size());
         int i = 0;
         for (Class<? extends Obstacle> subclass : subclasses) {
-            if (i==index) {
+            if (i == index) {
                 try {
                     return subclass.newInstance();
                 } catch (Exception e) {

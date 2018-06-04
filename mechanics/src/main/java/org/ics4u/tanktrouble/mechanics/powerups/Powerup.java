@@ -43,7 +43,7 @@ public abstract class Powerup extends BoundingCircle {
         int index = new Random().nextInt(subclasses.size());
         int i = 0;
         for (Class<? extends Powerup> subclass : subclasses) {
-            if (i==index) {
+            if (i == index) {
                 try {
                     return subclass.newInstance();
                 } catch (Exception e) {
