@@ -1,3 +1,5 @@
+package org.ics4u.tanktrouble.graphics;
+
 import javafx.fxml.FXML;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
