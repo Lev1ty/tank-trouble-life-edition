@@ -1,5 +1,7 @@
 package org.ics4u.tanktrouble.mechanics.tanks;
 
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import org.ics4u.tanktrouble.mechanics.meta.BoundingCircle;
 
 /**
@@ -20,7 +22,8 @@ public abstract class Tank extends BoundingCircle {
     /**
      * default constructor
      */
-    public Tank() {
+    public Tank(Pane pane) {
+        super(pane, 25, Color.GREEN);
         id = count;
         log.info("Tank id: " + id);
         count++;

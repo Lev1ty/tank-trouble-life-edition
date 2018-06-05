@@ -9,15 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>buckets</artifactId>
-    <dependencies>
-        <dependency>
-            <groupId>ics12</groupId>
-            <artifactId>mechanics</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
+    <artifactId>utilities</artifactId>
 
 
 </project>

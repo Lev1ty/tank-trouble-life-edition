@@ -11,19 +11,19 @@ public abstract class BoundingArea extends TankTroubleObject {
     /**
      * position vector
      */
-    protected PositionVector position;
+    public PositionVector position;
     /**
      * orientation vector
      */
-    protected OrientationVector orientation;
+    public OrientationVector orientation;
     /**
      * movement vector
      */
-    protected MovementVector movement;
+    public MovementVector movement;
     /**
      * acceleration vector
      */
-    protected AccelerationVector acceleration;
+    public AccelerationVector acceleration;
 
     /**
      * center-to-center distance

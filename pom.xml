@@ -18,6 +18,7 @@
         <module>mechanics</module>
         <module>buckets</module>
         <module>graphics</module>
+        <module>utilities</module>
     </modules>
 
 </project>

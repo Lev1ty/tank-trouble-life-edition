@@ -1,6 +1,6 @@
 package org.ics4u.tanktrouble.mechanics.meta.vectors;
 
-import java.util.Random;
+import static org.ics4u.tanktrouble.utilities.Utilities.rng;
 
 /**
  * orientation vector (rotation vector)
@@ -50,7 +50,6 @@ public class OrientationVector extends TankTroubleVector {
      * randomize orientation
      */
     private void randomize() {
-        Random rng = new Random();
         x = (rng.nextInt() == 0 ? -1 : 1) * rng.nextDouble();
         y = (rng.nextInt() == 0 ? -1 : 1) * (1 - Math.abs(x));
     }

@@ -1,5 +1,6 @@
-package org.ics4u.tanktrouble.buckets;
+package org.ics4u.tanktrouble.mechanics.buckets;
 
+import javafx.scene.layout.Pane;
 import org.ics4u.tanktrouble.mechanics.meta.TankTroubleObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,10 +28,10 @@ public abstract class TankTroubleBucket {
     /**
      * value constructor
      */
-    protected TankTroubleBucket(int number) {
+    protected TankTroubleBucket(Pane pane, int number) {
         this();
         for (int i = 0; i < number; i++)
-            add();
+            add(pane);
     }
 
     /**
@@ -43,7 +44,9 @@ public abstract class TankTroubleBucket {
     /**
      * add object
      */
-    public abstract void add();
+    public void add(Pane pane) {
+        log.info("object added");
+    }
 
     /**
      * remove object

@@ -1,5 +1,7 @@
 package org.ics4u.tanktrouble.mechanics.tanks;
 
+import javafx.scene.layout.Pane;
+
 /**
  * AI controlled tank
  *
@@ -18,8 +20,8 @@ public class AITank extends Tank {
     /**
      * default constructor
      */
-    public AITank() {
-        super();
+    public AITank(Pane pane) {
+        super(pane);
         id = count;
         log.info("AITank id: " + id);
         count++;

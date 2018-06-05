@@ -1,5 +1,7 @@
 package org.ics4u.tanktrouble.mechanics.tanks;
 
+import javafx.scene.layout.Pane;
+
 /**
  * player controlled tank
  *
@@ -18,8 +20,8 @@ public class PlayerTank extends Tank {
     /**
      * default constructor
      */
-    public PlayerTank() {
-        super();
+    public PlayerTank(Pane pane) {
+        super(pane);
         id = count;
         log.info("PlayerTank id: " + id);
         count++;

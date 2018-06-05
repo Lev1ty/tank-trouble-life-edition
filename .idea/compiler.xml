@@ -6,10 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="buckets" />
         <module name="graphics" />
         <module name="mechanics" />
+        <module name="utilities" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="buckets" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
