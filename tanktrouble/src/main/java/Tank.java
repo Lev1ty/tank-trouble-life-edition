@@ -29,19 +29,6 @@ public class Tank extends Friendable {
     }
 
     /**
-     * value constructor
-     * <p>
-     * for testing purposes
-     *
-     * @param imagePath path to avatar image of tank
-     * @param x         x-coordinate position
-     * @param y         y-coordinate position
-     */
-    public Tank(String imagePath, double x, double y) {
-        super(imagePath, x, y, 0, STEP);
-    }
-
-    /**
      * check if blocked
      *
      * @param other object to be checked

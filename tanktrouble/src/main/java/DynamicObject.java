@@ -70,19 +70,6 @@ public abstract class DynamicObject extends Object {
     }
 
     /**
-     * copy constructor with custom position
-     *
-     * @param other     object to copy from
-     * @param x         custom x-coordinate position
-     * @param y         custom y-coordinate position
-     * @param imagePath custom image path
-     * @param step      custom step
-     */
-    public DynamicObject(DynamicObject other, double x, double y, String imagePath, double step) {
-        this(imagePath, x, y, other.rotate.getAngle(), step);
-    }
-
-    /**
      * utility method to prepare for frame
      */
     public void initializeForFrame() {
