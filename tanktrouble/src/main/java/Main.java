@@ -8,98 +8,146 @@ import javafx.util.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * GUI
+ *
+ * @author adam
+ */
 public class Main extends Application implements ApplicationParameters {
 
+    /**
+     * entry point for application
+     *
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }
 
+    /**
+     * start game
+     *
+     * @param primaryStage main window
+     */
     @Override
     public void start(Stage primaryStage) {
+        // set title of window
         primaryStage.setTitle(TITLE);
+        // make window fixed size
+        primaryStage.setResizable(false);
+        // apply scene to window
         primaryStage.setScene(scene);
 
-        Bucket.objects.add(new Tank("red_player.png"));
-        Bucket.objects.add(new Tank("green_player.png"));
-//        Bucket.objects.add(new Tank("blue_player.png"));
+        // create human player array and add players
+        ArrayList<Object> player = new ArrayList<>();
+        player.add(new Tank("red_player.png"));
+        player.add(new Tank("green_player.png"));
 
-        for (Object object : Bucket.objects)
+        // add human players to global array and their avatars to screen (pane)
+        Bucket.objects.addAll(player);
+        for (Object object : player)
             pane.getChildren().add(object.imageView);
 
+        // add AI players
         for (int i = 0; i < 10; i++) {
             Tank tank = new Tank("black_player.png");
             Bucket.objects.add(tank);
             pane.getChildren().add(tank.imageView);
         }
 
+        // key press key listener
         scene.setOnKeyPressed(event -> {
             switch (event.getCode()) {
                 case UP:
-                    ((Tank) Bucket.objects.get(0)).north = true;
+                    if (!player.isEmpty())
+                        ((Tank) player.get(0)).north = true;
                     break;
                 case DOWN:
-                    ((Tank) Bucket.objects.get(0)).south = true;
+                    if (!player.isEmpty())
+                        ((Tank) player.get(0)).south = true;
                     break;
                 case RIGHT:
-                    ((Tank) Bucket.objects.get(0)).east = true;
+                    if (!player.isEmpty())
+                        ((Tank) player.get(0)).east = true;
                     break;
                 case LEFT:
-                    ((Tank) Bucket.objects.get(0)).west = true;
+                    if (!player.isEmpty())
+                        ((Tank) player.get(0)).west = true;
                     break;
                 case M:
-                    ((Tank) Bucket.objects.get(0)).fire = true;
+                    if (!player.isEmpty())
+                        ((Tank) player.get(0)).fire = true;
                     break;
                 case W:
-                    ((Tank) Bucket.objects.get(1)).north = true;
+                    if (player.size() > 1)
+                        ((Tank) player.get(1)).north = true;
                     break;
                 case S:
-                    ((Tank) Bucket.objects.get(1)).south = true;
+                    if (player.size() > 1)
+                        ((Tank) player.get(1)).south = true;
                     break;
                 case D:
-                    ((Tank) Bucket.objects.get(1)).east = true;
+                    if (player.size() > 1)
+                        ((Tank) player.get(1)).east = true;
                     break;
                 case A:
-                    ((Tank) Bucket.objects.get(1)).west = true;
+                    if (player.size() > 1)
+                        ((Tank) player.get(1)).west = true;
                     break;
                 case Q:
-                    ((Tank) Bucket.objects.get(1)).fire = true;
+                    if (player.size() > 1)
+                        ((Tank) player.get(1)).fire = true;
                     break;
             }
         });
 
+        // key release key listener
         scene.setOnKeyReleased(event -> {
             switch (event.getCode()) {
                 case UP:
-                    ((Tank) Bucket.objects.get(0)).north = false;
+                    if (!player.isEmpty())
+                        ((Tank) player.get(0)).north = false;
                     break;
                 case DOWN:
-                    ((Tank) Bucket.objects.get(0)).south = false;
+                    if (!player.isEmpty())
+                        ((Tank) player.get(0)).south = false;
                     break;
                 case RIGHT:
-                    ((Tank) Bucket.objects.get(0)).east = false;
+                    if (!player.isEmpty())
+                        ((Tank) player.get(0)).east = false;
                     break;
                 case LEFT:
-                    ((Tank) Bucket.objects.get(0)).west = false;
+                    if (!player.isEmpty())
+                        ((Tank) player.get(0)).west = false;
                     break;
                 case W:
-                    ((Tank) Bucket.objects.get(1)).north = false;
+                    if (player.size() > 1)
+                        ((Tank) player.get(1)).north = false;
                     break;
                 case S:
-                    ((Tank) Bucket.objects.get(1)).south = false;
+                    if (player.size() > 1)
+                        ((Tank) player.get(1)).south = false;
                     break;
                 case D:
-                    ((Tank) Bucket.objects.get(1)).east = false;
+                    if (player.size() > 1)
+                        ((Tank) player.get(1)).east = false;
                     break;
                 case A:
-                    ((Tank) Bucket.objects.get(1)).west = false;
+                    if (player.size() > 1)
+                        ((Tank) player.get(1)).west = false;
                     break;
             }
         });
 
+        // initialize animation framework
         Timeline timeline = new Timeline();
+        // uninterrupted game loop
         timeline.setCycleCount(Timeline.INDEFINITE);
+        // initialize game loop
         KeyFrame keyFrame = new KeyFrame(
+                // 60 Hz refresh
                 Duration.seconds(0.017),
+                // game loop
                 event -> {
                     List<Object> bullets = new ArrayList<>();
                     List<ImageView> bulletImageViews = new ArrayList<>();
@@ -116,6 +164,10 @@ public class Main extends Application implements ApplicationParameters {
                                 bullets.add(bullet);
                                 bulletImageViews.add(bullet.imageView);
                                 tank.fire = false;
+                            }
+                            for (Object object1 : Bucket.objects) {
+                                if (object.id != object1.id && !(object1 instanceof Bullet) && object.hit(object1))
+                                    ((Tank) object).reverseNow();
                             }
                         }
                     }
@@ -139,12 +191,16 @@ public class Main extends Application implements ApplicationParameters {
                     }
                     Bucket.objects.removeAll(toBeRemoved);
                     pane.getChildren().removeAll(toBeRemovedImageViews);
+                    if (!player.isEmpty() && player.get(0).id != Bucket.objects.get(0).id)
+                        player.remove(0);
                 }
         );
-
+        // apply game loop to animator
         timeline.getKeyFrames().add(keyFrame);
+        // start animator
         timeline.play();
 
+        // open window
         primaryStage.show();
     }
 }
