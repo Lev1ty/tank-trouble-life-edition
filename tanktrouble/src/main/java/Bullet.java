@@ -63,7 +63,7 @@ public class Bullet extends Friendable {
      * to-do when bounced
      */
     public void bounced() {
-        rotate.setAngle(rotate.getAngle() * Math.E * Math.PI);
+        rotate.setAngle(rotate.getAngle() * Math.E * Math.PI * Utility.random.nextDouble());
     }
 
     /**

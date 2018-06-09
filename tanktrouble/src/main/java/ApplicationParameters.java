@@ -14,11 +14,11 @@ public interface ApplicationParameters {
     /**
      * width of window
      */
-    int WIDTH = 1200;
+    int WIDTH = 1600;
     /**
      * height of window
      */
-    int HEIGHT = 800;
+    int HEIGHT = 900;
     /**
      * excess allocated pixels due to fixed window dimensions
      * <p>
@@ -41,4 +41,5 @@ public interface ApplicationParameters {
      * event listeners etc.
      */
     Scene scene = new Scene(pane, WIDTH, HEIGHT);
+    int AI_COUNT = 30;
 }

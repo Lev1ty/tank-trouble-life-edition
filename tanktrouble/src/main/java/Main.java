@@ -49,14 +49,14 @@ public class Main extends Application implements ApplicationParameters {
             pane.getChildren().add(object.imageView);
 
         // add AI players
-        for (int i = 0; i < 10; i++) {
-            Tank tank = new Tank("black_player.png");
+        for (int i = 0; i < AI_COUNT; i++) {
+            AI tank = new AI("black_player.png");
             Bucket.objects.add(tank);
             pane.getChildren().add(tank.imageView);
         }
 
         // add bushes
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
             Object bush = new Bush("bush.png");
             Bucket.objects.add(bush);
             pane.getChildren().add(bush.imageView);
@@ -157,6 +157,9 @@ public class Main extends Application implements ApplicationParameters {
                 Duration.seconds(0.017),
                 // game loop
                 event -> {
+                    for (Object object : Bucket.objects)
+                        if (object instanceof AI)
+                            ((AI) object).plannedAction();
                     // temporary bullets container
                     List<Object> bullets = new ArrayList<>();
                     // temporary bullets avatar image container
@@ -164,6 +167,48 @@ public class Main extends Application implements ApplicationParameters {
 
                     // tank loop
                     for (Object object : Bucket.objects) {
+                        // only apply to tanks
+                        if (object instanceof AI) {
+                            // get alias
+                            Tank tank = (Tank) object;
+                            // initialize tank for frame updates
+                            tank.initializeForFrame();
+                            // act on heading
+                            if (tank.north) {
+                                tank.goNorth();
+                                tank.north = false;
+                            }
+                            if (tank.south) {
+                                tank.goSouth();
+                                tank.south = false;
+                            }
+                            if (tank.east) {
+                                tank.goEast();
+                                tank.east = false;
+                            }
+                            if (tank.west) {
+                                tank.goWest();
+                                tank.west = false;
+                            }
+                            // act on fire
+                            if (tank.bullets >= 5) tank.fire = false;
+                            if (tank.fire) {
+                                // initialize new bullet
+                                Bullet bullet = new Bullet(tank, "bullet.png");
+                                // add bullet to temporary array
+                                bullets.add(bullet);
+                                // add bullet avatar to temporary avatar image array
+                                bulletImageViews.add(bullet.imageView);
+                                // reset fire flag
+                                tank.fire = false;
+                            }
+                            // check for blocking
+                            for (Object object1 : Bucket.objects)
+                                // if blocked
+                                if (((Tank) object).block(object1))
+                                    // act accordingly
+                                    ((Tank) object).blocked();
+                        }
                         // only apply to tanks
                         if (object instanceof Tank) {
                             // get alias
@@ -228,6 +273,7 @@ public class Main extends Application implements ApplicationParameters {
                                 // check for kills and act accordingly
                                 if (object1 instanceof Tank && ((Bullet) object).kill(object1)) {
                                     ((Bullet) object).owner.bullets--;
+                                    ((Bullet) object).owner.kills++;
                                     // dematerialize bullet and victim tank
                                     // add bullet to killed array
                                     toBeRemoved.add(object);
@@ -237,8 +283,6 @@ public class Main extends Application implements ApplicationParameters {
                                     toBeRemoved.add(object1);
                                     // add victim tank avatar image to killed image array
                                     toBeRemovedImageViews.add(object1.imageView);
-                                    // add to score of owner tank
-                                    ((Tank) Bucket.objects.get(((Bullet) object).ownerId)).kills++;
                                 }
                                 // check for bushes and act accordingly
                                 if ((object1 instanceof Bush) && ((Bullet) object).bounce(object1))
@@ -255,8 +299,8 @@ public class Main extends Application implements ApplicationParameters {
                     // player killed
                     // remove player from player array and action listener
                     // if player array is not empty, then global array cannot be empty
-                    if (!player.isEmpty() && player.get(0).id != Bucket.objects.get(0).id)
-                        player.remove(0);
+//                    if (!player.isEmpty() && player.get(0).id != Bucket.objects.get(0).id)
+//                        player.remove(0);
                 }
         );
 
