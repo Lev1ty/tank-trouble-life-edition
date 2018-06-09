@@ -16,6 +16,10 @@ public class Tank extends Friendable {
      * score counter
      */
     public int kills;
+    /**
+     * bullet counter
+     */
+    public int bullets;
 
     /**
      * randomized-value constructor
@@ -26,6 +30,7 @@ public class Tank extends Friendable {
         super(imagePath, STEP);
         // zero score
         kills = 0;
+        bullets = 0;
     }
 
     /**

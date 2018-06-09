@@ -55,6 +55,13 @@ public class Main extends Application implements ApplicationParameters {
             pane.getChildren().add(tank.imageView);
         }
 
+        // add bushes
+        for (int i = 0; i < 10; i++) {
+            Object bush = new Bush("bush.png");
+            Bucket.objects.add(bush);
+            pane.getChildren().add(bush.imageView);
+        }
+
         // key press key listener
         scene.setOnKeyPressed(event -> {
             switch (event.getCode()) {
@@ -169,6 +176,7 @@ public class Main extends Application implements ApplicationParameters {
                             if (tank.east) tank.goEast();
                             if (tank.west) tank.goWest();
                             // act on fire
+                            if (tank.bullets >= 5) tank.fire = false;
                             if (tank.fire) {
                                 // initialize new bullet
                                 Bullet bullet = new Bullet(tank, "bullet.png");
@@ -202,6 +210,15 @@ public class Main extends Application implements ApplicationParameters {
                     for (Object object : Bucket.objects) {
                         // apply on to bullets
                         if (object instanceof Bullet) {
+                            if ((System.nanoTime() - ((Bullet) object).time) > 5000000000L) {
+                                // add bullet to killed array
+                                toBeRemoved.add(object);
+                                // add bullet avatar image to killed image array
+                                toBeRemovedImageViews.add(object.imageView);
+                                if (((Bullet) object).owner != null)
+                                    ((Bullet) object).owner.bullets--;
+                                continue;
+                            }
                             // prepare bullet for frame updates
                             ((Bullet) object).initializeForFrame();
                             // propagate bullet forward
@@ -210,6 +227,7 @@ public class Main extends Application implements ApplicationParameters {
                             for (Object object1 : Bucket.objects) {
                                 // check for kills and act accordingly
                                 if (object1 instanceof Tank && ((Bullet) object).kill(object1)) {
+                                    ((Bullet) object).owner.bullets--;
                                     // dematerialize bullet and victim tank
                                     // add bullet to killed array
                                     toBeRemoved.add(object);
@@ -222,6 +240,9 @@ public class Main extends Application implements ApplicationParameters {
                                     // add to score of owner tank
                                     ((Tank) Bucket.objects.get(((Bullet) object).ownerId)).kills++;
                                 }
+                                // check for bushes and act accordingly
+                                if ((object1 instanceof Bush) && ((Bullet) object).bounce(object1))
+                                    ((Bullet) object).bounced();
                             }
                         }
                     }

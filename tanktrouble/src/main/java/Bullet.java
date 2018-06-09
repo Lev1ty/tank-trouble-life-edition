@@ -12,6 +12,14 @@ public class Bullet extends Friendable {
      * tank that fired this bullet
      */
     public int ownerId;
+    /**
+     * timer
+     */
+    public long time;
+    /**
+     * owner
+     */
+    public Tank owner;
 
     /**
      * copy constructor
@@ -26,6 +34,9 @@ public class Bullet extends Friendable {
         becomeFriends(other);
         // set the tank as owner
         ownerId = other.id;
+        time = System.nanoTime();
+        ((Tank) other).bullets++;
+        owner = (Tank) other;
     }
 
     /**
@@ -52,5 +63,16 @@ public class Bullet extends Friendable {
      * to-do when bounced
      */
     public void bounced() {
+        rotate.setAngle(rotate.getAngle() * Math.E * Math.PI);
+    }
+
+    /**
+     * head north
+     */
+    @Override
+    public void goNorth() {
+        translate.setX(translate.getX() + step * Math.cos(rotate.getAngle() * Math.PI / 180));
+        translate.setY(translate.getY() + step * Math.sin(rotate.getAngle() * Math.PI / 180));
+        if (outOfBounds()) bounced();
     }
 }
