@@ -143,58 +143,102 @@ public class Main extends Application implements ApplicationParameters {
         Timeline timeline = new Timeline();
         // uninterrupted game loop
         timeline.setCycleCount(Timeline.INDEFINITE);
+
         // initialize game loop
         KeyFrame keyFrame = new KeyFrame(
                 // 60 Hz refresh
                 Duration.seconds(0.017),
                 // game loop
                 event -> {
+                    // temporary bullets container
                     List<Object> bullets = new ArrayList<>();
+                    // temporary bullets avatar image container
                     List<ImageView> bulletImageViews = new ArrayList<>();
+
+                    // tank loop
                     for (Object object : Bucket.objects) {
+                        // only apply to tanks
                         if (object instanceof Tank) {
+                            // get alias
                             Tank tank = (Tank) object;
+                            // initialize tank for frame updates
                             tank.initializeForFrame();
+                            // act on heading
                             if (tank.north) tank.goNorth();
                             if (tank.south) tank.goSouth();
                             if (tank.east) tank.goEast();
                             if (tank.west) tank.goWest();
+                            // act on fire
                             if (tank.fire) {
+                                // initialize new bullet
                                 Bullet bullet = new Bullet(tank, "bullet.png");
+                                // add bullet to temporary array
                                 bullets.add(bullet);
+                                // add bullet avatar to temporary avatar image array
                                 bulletImageViews.add(bullet.imageView);
+                                // reset fire flag
                                 tank.fire = false;
                             }
+                            // check for blocking
+                            for (Object object1 : Bucket.objects)
+                                // if blocked
+                                if (((Tank) object).block(object1))
+                                    // act accordingly
+                                    ((Tank) object).blocked();
+                        }
+                    }
+
+                    // add temporary bullets to global array
+                    Bucket.objects.addAll(bullets);
+                    // add temporary bullet avatar images to screen
+                    pane.getChildren().addAll(bulletImageViews);
+
+                    // killed
+                    List<Object> toBeRemoved = new ArrayList<>();
+                    // killed avatar images
+                    List<ImageView> toBeRemovedImageViews = new ArrayList<>();
+
+                    // bullet loop
+                    for (Object object : Bucket.objects) {
+                        // apply on to bullets
+                        if (object instanceof Bullet) {
+                            // prepare bullet for frame updates
+                            ((Bullet) object).initializeForFrame();
+                            // propagate bullet forward
+                            ((Bullet) object).goNorth();
+                            // check collision
                             for (Object object1 : Bucket.objects) {
-                                if (object.id != object1.id && !(object1 instanceof Bullet) && object.hit(object1))
-                                    ((Tank) object).reverseNow();
+                                // check for kills and act accordingly
+                                if (object1 instanceof Tank && ((Bullet) object).kill(object1)) {
+                                    // dematerialize bullet and victim tank
+                                    // add bullet to killed array
+                                    toBeRemoved.add(object);
+                                    // add bullet avatar image to killed image array
+                                    toBeRemovedImageViews.add(object.imageView);
+                                    // add victim tank to killed array
+                                    toBeRemoved.add(object1);
+                                    // add victim tank avatar image to killed image array
+                                    toBeRemovedImageViews.add(object1.imageView);
+                                    // add to score of owner tank
+                                    ((Tank) Bucket.objects.get(((Bullet) object).ownerId)).kills++;
+                                }
                             }
                         }
                     }
-                    pane.getChildren().addAll(bulletImageViews);
-                    Bucket.objects.addAll(bullets);
-                    List<Object> toBeRemoved = new ArrayList<>();
-                    List<ImageView> toBeRemovedImageViews = new ArrayList<>();
-                    for (Object object : Bucket.objects) {
-                        if (object instanceof Bullet) {
-                            ((Bullet) object).initializeForFrame();
-                            ((Bullet) object).goNorth();
-                            for (Object object1 : Bucket.objects)
-                                if (object1 instanceof Tank && object.kill(object1)) {
-                                    toBeRemoved.add(object);
-                                    toBeRemovedImageViews.add(object.imageView);
-                                    toBeRemoved.add(object1);
-                                    toBeRemovedImageViews.add(object1.imageView);
-                                    ((Tank) Bucket.objects.get(((Bullet) object).ownerId)).kills++;
-                                }
-                        }
-                    }
+
+                    // remove killed from global array
                     Bucket.objects.removeAll(toBeRemoved);
+                    // remove killed avatar images from screen
                     pane.getChildren().removeAll(toBeRemovedImageViews);
+
+                    // player killed
+                    // remove player from player array and action listener
+                    // if player array is not empty, then global array cannot be empty
                     if (!player.isEmpty() && player.get(0).id != Bucket.objects.get(0).id)
                         player.remove(0);
                 }
         );
+
         // apply game loop to animator
         timeline.getKeyFrames().add(keyFrame);
         // start animator

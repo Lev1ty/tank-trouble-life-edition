@@ -13,6 +13,7 @@ public class Utility {
 
     /**
      * get random integer within range
+     *
      * @param lo lower bound
      * @param hi higher bound
      * @return random integer within inclusive range

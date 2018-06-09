@@ -26,12 +26,6 @@ public abstract class Object implements ApplicationParameters {
      * avatar image container
      */
     public ImageView imageView;
-    /**
-     * friendly units
-     * <p>
-     * bullets don't kill friendlies
-     */
-    public Set<Integer> friendlies;
 
     /**
      * default constructor
@@ -47,10 +41,6 @@ public abstract class Object implements ApplicationParameters {
         this.imagePath = imagePath;
         // initialize avatar
         imageView = new ImageView(new Image(imagePath));
-        // initialize friendlies
-        friendlies = new HashSet<>();
-        // become friends with self
-        becomeFriends(this);
     }
 
     /**
@@ -80,23 +70,6 @@ public abstract class Object implements ApplicationParameters {
     }
 
     /**
-     * check to kill other object
-     *
-     * @param other object to check
-     * @return kill object or not
-     */
-    public boolean kill(Object other) {
-        // check if hit
-        if (!hit(other)) return false;
-        // check own set of friendlies
-        for (Integer integer : friendlies)
-            if (other.id == integer)
-                return false;
-        // intentional fallthrough
-        return true;
-    }
-
-    /**
      * check if hit other
      *
      * @param other object to check
@@ -108,19 +81,9 @@ public abstract class Object implements ApplicationParameters {
     }
 
     /**
-     * become friends with other object
-     *
-     * @param other object to be friended
-     */
-    public void becomeFriends(Object other) {
-        // add other to own set of friends
-        friendlies.add(other.id);
-        // add this to other set of friends
-        other.friendlies.add(id);
-    }
-
-    /**
      * generate random nonoverlapping position on field
+     * <p>
+     * guaranteed to spawn within field bounds
      *
      * @return {x, y} <- center of nonoverlapping position
      */

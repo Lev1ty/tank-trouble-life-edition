@@ -47,6 +47,7 @@ public abstract class DynamicObject extends Object {
      * @param imagePath path to avatar image
      * @param x         x-coordinate position
      * @param y         y-coordinate position
+     * @param angle     angle
      * @param step      movement per frame
      */
     public DynamicObject(String imagePath, double x, double y, double angle, double step) {
@@ -108,22 +109,12 @@ public abstract class DynamicObject extends Object {
     }
 
     /**
-     * override logic and go in reverse direction
-     */
-    public void reverseNow() {
-        if (north) goSouth();
-        if (south) goNorth();
-        if (east) goWest();
-        if (west) goEast();
-    }
-
-    /**
      * head north
      */
     public void goNorth() {
         translate.setX(translate.getX() + step * Math.cos(rotate.getAngle() * Math.PI / 180));
         translate.setY(translate.getY() + step * Math.sin(rotate.getAngle() * Math.PI / 180));
-        if (outOfBounds()) reverseNow();
+        if (outOfBounds()) goSouth();
     }
 
     /**
@@ -132,7 +123,7 @@ public abstract class DynamicObject extends Object {
     public void goSouth() {
         translate.setX(translate.getX() - step * Math.cos(rotate.getAngle() * Math.PI / 180));
         translate.setY(translate.getY() - step * Math.sin(rotate.getAngle() * Math.PI / 180));
-        if (outOfBounds()) reverseNow();
+        if (outOfBounds()) goNorth();
     }
 
     /**
@@ -140,7 +131,6 @@ public abstract class DynamicObject extends Object {
      */
     public void goEast() {
         rotate.setAngle(rotate.getAngle() + step);
-        if (outOfBounds()) reverseNow();
     }
 
     /**
@@ -148,6 +138,5 @@ public abstract class DynamicObject extends Object {
      */
     public void goWest() {
         rotate.setAngle(rotate.getAngle() - step);
-        if (outOfBounds()) reverseNow();
     }
 }
