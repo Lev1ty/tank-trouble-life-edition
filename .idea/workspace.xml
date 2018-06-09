@@ -1,0 +1,1094 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="716ad738-fea9-488d-8317-4c639a007de8" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/enums/MovementDirection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/interfaces/GraphicsContextConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphics/src/main/java/org/ics4u/tanktrouble/graphics/TankTroubleGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/graphics/src/main/java/org/ics4u/tanktrouble/graphics/TankTroubleGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphics/src/main/resources/TankTroubleGUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/constant-values.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/deprecated-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/deprecated-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/help-doc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-10.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-11.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-12.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-12.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-13.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-13.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-14.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-14.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-8.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index-files/index-9.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/AITank.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/AITank.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/AccelerationVector.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/AccelerationVector.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/BoundingArea.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/BoundingArea.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/BoundingCircle.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/BoundingCircle.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/Bullet.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/Bullet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/MovementVector.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/MovementVector.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/OrientationVector.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/OrientationVector.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/PlayerTank.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/PlayerTank.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/PositionVector.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/PositionVector.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/Tank.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/Tank.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/TankTroubleObject.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/TankTroubleObject.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/TankTroubleVector.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/TankTroubleVector.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/org/ics4u/tanktrouble/mechanics/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadoc/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadoc/overview-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mechanics/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/buckets/Bullets.java" beforeDir="false" afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/buckets/Bullets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/buckets/Obstacles.java" beforeDir="false" afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/buckets/Obstacles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/buckets/Powerups.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/buckets/TankTroubleBucket.java" beforeDir="false" afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/buckets/TankTroubleBucket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/buckets/Tanks.java" beforeDir="false" afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/buckets/Tanks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/bullets/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/bullets/Bullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/bullets/Standard.java" beforeDir="false" afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/bullets/Standard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/BoundingArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/BoundingArea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/BoundingCircle.java" beforeDir="false" afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/BoundingCircle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/vectors/AccelerationVector.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/vectors/MovementVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/vectors/MovementVector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/vectors/OrientationVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/vectors/OrientationVector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/vectors/PositionVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/vectors/PositionVector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/vectors/TankTroubleVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/vectors/TankTroubleVector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/obstacles/Obstacle.java" beforeDir="false" afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/obstacles/Obstacle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/obstacles/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/obstacles/Wall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/powerups/Fuel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/powerups/Powerup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/AITank.java" beforeDir="false" afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/AITank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/Player1.java" beforeDir="false" afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/Player1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/Player2.java" beforeDir="false" afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/Player2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/Player3.java" beforeDir="false" afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/Player3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/PlayerTank.java" beforeDir="false" afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/PlayerTank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/Tank.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/mechanics/target/" />
+    <ignored path="$PROJECT_DIR$/buckets/target/" />
+    <ignored path="$PROJECT_DIR$/graphics/target/" />
+    <ignored path="$PROJECT_DIR$/utilities/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/TankTroubleLifeEdition$TankTroubleGUI.ic" NAME="TankTroubleGUI Coverage Results" MODIFIED="1528476428139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="TankTroubleGUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/graphics/src/main/java/org/ics4u/tanktrouble/graphics/TankTroubleGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="55" column="77" selection-start-line="55" selection-start-column="77" selection-end-line="55" selection-end-column="77" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BoundingArea.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/BoundingArea.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="157">
+              <caret line="37" column="35" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#799#800#0" expanded="true" />
+                <element signature="e#841#842#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MovementVector.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/vectors/MovementVector.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrientationVector.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/vectors/OrientationVector.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="397">
+              <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaFXApplication" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+        <option value="Interface" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/engine/Tanks.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/engine/TankTroubleBucket.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/TankTroubleObject.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/buckets/Tanks.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/interfaces/RandomlyGenerated.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/buckets/Powerups.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/buckets/Obstacles.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/buckets/Bullets.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/buckets/TankTroubleBucket.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/interfaces/GenerateSubclass.java" />
+        <option value="$PROJECT_DIR$/graphics/TankTroubleGUI.fxml" />
+        <option value="$PROJECT_DIR$/graphics/pom.xml" />
+        <option value="$PROJECT_DIR$/graphics/src/main/java/TankTroubleGUIController.java" />
+        <option value="$PROJECT_DIR$/graphics/src/main/java/TankTroubleGUI.java" />
+        <option value="$PROJECT_DIR$/graphics/src/main/java/org/ics4u/tanktrouble/graphics/TankTroubleGUIController.java" />
+        <option value="$PROJECT_DIR$/buckets/src/main/java/org/ics4u/tanktrouble/buckets/TankTroubleBucket.java" />
+        <option value="$PROJECT_DIR$/buckets/src/main/java/org/ics4u/tanktrouble/buckets/Tanks.java" />
+        <option value="$PROJECT_DIR$/utilities/src/main/java/org/ics4u/tanktrouble/utilities/Utilities.java" />
+        <option value="$PROJECT_DIR$/buckets/src/main/java/org/ics4u/tanktrouble/buckets/Powerups.java" />
+        <option value="$PROJECT_DIR$/buckets/src/main/java/org/ics4u/tanktrouble/buckets/Bullets.java" />
+        <option value="$PROJECT_DIR$/buckets/src/main/java/org/ics4u/tanktrouble/buckets/Obstacles.java" />
+        <option value="$PROJECT_DIR$/mechanics/pom.xml" />
+        <option value="$PROJECT_DIR$/graphics/src/main/resources/TankTroubleGUI.fxml" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/interfaces/GraphicsContextConstants.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/buckets/Powerups.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/powerups/Powerup.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/powerups/Fuel.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/buckets/TankTroubleBucket.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/buckets/Bullets.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/buckets/Tanks.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/buckets/Obstacles.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/vectors/AccelerationVector.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/Tank.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/PlayerTank.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/Player3.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/Player2.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/obstacles/Obstacle.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/bullets/Standard.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/bullets/Bullet.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/obstacles/Wall.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/enums/MovementDirection.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/vectors/PositionVector.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/vectors/TankTroubleVector.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/BoundingCircle.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/AITank.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/Player1.java" />
+        <option value="$PROJECT_DIR$/graphics/src/main/java/org/ics4u/tanktrouble/graphics/TankTroubleGUI.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/vectors/MovementVector.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/vectors/OrientationVector.java" />
+        <option value="$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/BoundingArea.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1750" />
+    <option name="height" value="1030" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="graphics" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="graphics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="graphics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="graphics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="graphics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="graphics" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+              <item name="buckets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+              <item name="bullets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+              <item name="enums" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+              <item name="meta" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+              <item name="meta" type="462c0819:PsiDirectoryNode" />
+              <item name="vectors" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+              <item name="obstacles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+              <item name="tanks" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="mechanics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="utilities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="utilities" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="utilities" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="utilities" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TankTroubleLifeEdition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TankTroubleLifeEdition" type="462c0819:PsiDirectoryNode" />
+              <item name="utilities" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utilities" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.ics4u.tanktrouble.mechanics" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\adamx\Desktop\TankTroubleLifeEdition\mechanics\src\main\resources" />
+      <recent name="C:\Users\adamx\Desktop\TankTroubleLifeEdition\graphics\src\main\java\org\ics4u\tanktrouble\graphics" />
+      <recent name="C:\Users\adamx\Desktop\TankTroubleLifeEdition\graphics\src\main\resources" />
+      <recent name="C:\Users\adamx\Desktop\TankTroubleLifeEdition\buckets\src\main\java" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.TankTroubleGUI">
+    <configuration name="Powerup" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ics4u.tanktrouble.mechanics.powerups.Powerup" />
+      <module name="mechanics" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ics4u.tanktrouble.mechanics.powerups.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="TankTroubleBucket" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ics4u.tanktrouble.buckets.TankTroubleBucket" />
+      <module name="mechanics" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ics4u.tanktrouble.mechanics.buckets.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="TankTroubleBucket" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ics4u.tanktrouble.mechanics.buckets.TankTroubleBucket" />
+      <module name="buckets" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ics4u.tanktrouble.mechanics.buckets.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="TankTroubleGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ics4u.tanktrouble.graphics.TankTroubleGUI" />
+      <module name="graphics" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="Tanks" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ics4u.tanktrouble.buckets.Tanks" />
+      <module name="mechanics" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ics4u.tanktrouble.mechanics.buckets.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Tanks" />
+      <item itemvalue="Application.TankTroubleBucket" />
+      <item itemvalue="Application.Powerup" />
+      <item itemvalue="Application.TankTroubleGUI" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TankTroubleGUI" />
+        <item itemvalue="Application.Powerup" />
+        <item itemvalue="Application.TankTroubleBucket" />
+        <item itemvalue="Application.Tanks" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="716ad738-fea9-488d-8317-4c639a007de8" name="Default" comment="" />
+      <created>1527953964053</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1527953964053</updated>
+    </task>
+    <task id="LOCAL-00001" summary="done object collision and mechanics">
+      <created>1527972879786</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1527972879786</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add documentation">
+      <created>1527973768573</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1527973768573</updated>
+    </task>
+    <task id="LOCAL-00003" summary="organization">
+      <created>1527976593646</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1527976593646</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add buckets">
+      <created>1527988945681</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1527988945681</updated>
+    </task>
+    <task id="LOCAL-00005" summary="modify buckets">
+      <created>1528069849744</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1528069849744</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add javafx">
+      <created>1528074257810</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1528074257810</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix graphics package structure">
+      <created>1528143114835</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1528143114836</updated>
+    </task>
+    <task id="LOCAL-00008" summary="start integration of graphics and mechanics">
+      <created>1528224530703</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1528224530704</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="TankTroubleObjectTest - 2018.06.02 at 13h 43m 41s.xml">
+      <configuration name="TankTroubleObjectTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TankTroubleObjectTest - 2018.06.02 at 13h 44m 15s.xml">
+      <configuration name="TankTroubleObjectTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TankTroubleObjectTest - 2018.06.02 at 13h 44m 21s.xml">
+      <configuration name="TankTroubleObjectTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TankTroubleObjectTest - 2018.06.02 at 13h 45m 11s.xml">
+      <configuration name="TankTroubleObjectTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TankTroubleObjectTest - 2018.06.02 at 13h 54m 51s.xml">
+      <configuration name="TankTroubleObjectTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32814527" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50065106" side_tool="true" weight="0.32941177" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49934897" weight="0.33333334" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Designer" order="3" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3994812" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="0" weight="0.32941177" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.3294271" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32941177" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32814527" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="done object collision and mechanics" />
+    <MESSAGE value="add documentation" />
+    <MESSAGE value="organization" />
+    <MESSAGE value="add buckets" />
+    <MESSAGE value="modify buckets" />
+    <MESSAGE value="add javafx" />
+    <MESSAGE value="fix graphics package structure" />
+    <MESSAGE value="start integration of graphics and mechanics" />
+    <option name="LAST_COMMIT_MESSAGE" value="start integration of graphics and mechanics" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="8" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/BoudingCircle.java" />
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/DynamicObject.java" />
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/StaticObject.java" />
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/BoudingBox.java" />
+    <entry file="file://$PROJECT_DIR$/mechanics/src/test/java/org/ics4u/tanktrouble/mechanics/test/TankTroubleObjectTest.java" />
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/BoundingRectangle.java" />
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/interfaces/RandomlyGenerated.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/Random.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="387" selection-start-line="387" selection-end-line="387" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/interfaces/GenerateSubclass.java" />
+    <entry file="file://$PROJECT_DIR$/graphics/graphics.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="3206" selection-start-line="3206" selection-end-line="3206" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/buckets/pom.xml" />
+    <entry file="file://$PROJECT_DIR$/graphics/src/main/java/org/ics4u/tanktrouble/graphics/TankTroubleGUIController.java" />
+    <entry file="file://$PROJECT_DIR$/utilities/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utilities/src/main/java/org/ics4u/tanktrouble/utilities/Utilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphics/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="24" selection-start-line="24" selection-end-line="29" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphics/src/main/resources/TankTroubleGUI.fxml" />
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/interfaces/GraphicsContextConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/powerups/Powerup.java" />
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/powerups/Fuel.java" />
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/buckets/Powerups.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/javafx-src.zip!/com/sun/scenario/animation/shared/TimelineClipCore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="238" selection-start-line="238" selection-end-line="238" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/buckets/Bullets.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+          <folding>
+            <element signature="e#275#276#0" expanded="true" />
+            <element signature="e#304#305#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/TankTroubleObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/Player3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/Player2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/obstacles/Obstacle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="27" column="23" lean-forward="true" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/bullets/Standard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="65" selection-start-line="15" selection-start-column="65" selection-end-line="15" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/buckets/TankTroubleBucket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/buckets/Obstacles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+          <folding>
+            <element signature="e#285#286#0" expanded="true" />
+            <element signature="e#314#315#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/obstacles/Wall.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/vectors/AccelerationVector.java" />
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/enums/MovementDirection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/vectors/PositionVector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/buckets/Tanks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/PlayerTank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/Tank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/javafx-src.zip!/javafx/scene/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="5950" selection-start-line="5950" selection-end-line="5950" />
+          <folding>
+            <element signature="e#231424#231425#0" expanded="true" />
+            <element signature="e#231467#231468#0" expanded="true" />
+            <element signature="e#233085#233086#0" expanded="true" />
+            <element signature="e#233148#233149#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/vectors/TankTroubleVector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1436">
+          <caret line="110" selection-start-line="110" selection-end-line="110" />
+          <folding>
+            <element signature="e#2152#2153#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/BoundingCircle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/AITank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/resources/bush.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/tanks/Player1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#225#226#0" expanded="true" />
+            <element signature="e#290#291#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphics/src/main/java/org/ics4u/tanktrouble/graphics/TankTroubleGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="55" column="77" selection-start-line="55" selection-start-column="77" selection-end-line="55" selection-end-column="77" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/vectors/MovementVector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/BoundingArea.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="37" column="35" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#799#800#0" expanded="true" />
+            <element signature="e#841#842#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/bullets/Bullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="27" column="23" lean-forward="true" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mechanics/src/main/java/org/ics4u/tanktrouble/mechanics/meta/vectors/OrientationVector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>mechanics</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>10</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: com.google.guava:guava:20.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
