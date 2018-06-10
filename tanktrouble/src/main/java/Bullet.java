@@ -75,6 +75,8 @@ public class Bullet extends DynamicObject {
             } else {
                 this.rotate.setAngle(360 - this.rotate.getAngle());
             }
+        } else {
+            this.rotate.setAngle(this.rotate.getAngle() + 90);
         }
     }
 
