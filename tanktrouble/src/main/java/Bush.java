@@ -1,5 +1,14 @@
-public class Bush extends DynamicObject {
-    public Bush(String imagePath) {
-        super(imagePath, 0);
+/**
+ * bush
+ *
+ * @author adam
+ */
+public class Bush extends ObjectBuilder {
+    @Override
+    public void act() {
+    }
+
+    @Override
+    public void interact(Object other) {
     }
 }

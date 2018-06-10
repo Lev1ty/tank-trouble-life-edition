@@ -1,120 +1,129 @@
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.transform.Rotate;
+import javafx.scene.transform.Translate;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * game object
+ * object
  *
  * @author adam
  */
-public abstract class Object implements ApplicationParameters {
+public abstract class Object implements Constants {
     /**
-     * total number of objects on the field
+     * global array
+     */
+    public static List<Object> global = new ArrayList<>();
+    /**
+     * global buffer array
+     * <p>
+     * dynamically generated objects are pushed to buffer during the frame to avoid concurrent modification exception
+     */
+    public static List<Object> buffer = new ArrayList<>();
+    /**
+     * id count
      */
     public static int idCount = 0;
     /**
-     * object index of this
+     * id
      */
     public int id;
     /**
-     * path to avatar
+     * active status
      */
-    public String imagePath;
+    public boolean active;
     /**
-     * avatar image container
+     * dead status
+     */
+    public boolean dead;
+    /**
+     * pane
+     */
+    public Pane pane;
+    /**
+     * image view
      */
     public ImageView imageView;
+    /**
+     * translation
+     */
+    public Translate translate;
+    /**
+     * rotate
+     */
+    public Rotate rotate;
 
     /**
      * default constructor
-     *
-     * @param imagePath path to avatar image
      */
-    public Object(String imagePath) {
-        // set count to current total
-        id = idCount;
-        // update total count
+    public Object() {
+        // set id
+        this.id = ObjectBuilder.idCount;
+        // update id count
         idCount++;
-        // store path to image
-        this.imagePath = imagePath;
-        // initialize avatar
-        imageView = new ImageView(new Image(imagePath));
+        // default inactive
+        this.active = false;
+        // default alive
+        this.dead = false;
     }
 
     /**
-     * edge-to-edge distance to another object
-     *
-     * @param other object to be probed
-     * @param x     arbitrary x-coordinate of this
-     * @param y     arbitrary y-coordinate of this
-     * @return distance between arbitrary position and object
+     * interact with this
      */
-    public double distanceTo(Object other, int x, int y) {
-        // magnitude between centers - radius of other - radius of this
-        return Math.sqrt(Math.pow(((DynamicObject) other).translate.getX() + other.imageView.getImage().getWidth() / 2 - x, 2) +
-                Math.pow(((DynamicObject) other).translate.getY() + other.imageView.getImage().getHeight() / 2 - y, 2)) -
-                other.imageView.getImage().getWidth() / 2 - imageView.getImage().getWidth() / 2;
+    public abstract void act();
+
+    /**
+     * interact with other object
+     */
+    public abstract void interact(Object other);
+
+    /**
+     * center to center distance
+     */
+    public double centerToCenterDistance(Object other) {
+        return Math.sqrt(Math.pow((this.translate.getX() + this.imageView.getImage().getWidth() / 2)
+                - (other.translate.getX() + other.imageView.getImage().getWidth() / 2), 2)
+                + Math.pow((this.translate.getY() + this.imageView.getImage().getHeight() / 2)
+                - (other.translate.getY() + other.imageView.getImage().getHeight() / 2), 2));
     }
 
     /**
-     * edge-to-edge distance to another object
-     *
-     * @param other object to be probed
-     * @return distance between current position and object
+     * edge to edge distance
      */
-    public double distanceTo(Object other) {
-        return distanceTo(other, (int) (((DynamicObject) this).translate.getX() + imageView.getImage().getWidth() / 2),
-                (int) (((DynamicObject) this).translate.getY() + imageView.getImage().getHeight() / 2));
+    public double edgeToEdgeDistance(Object other) {
+        return this.centerToCenterDistance(other)
+                - this.imageView.getImage().getWidth() / 2
+                - other.imageView.getImage().getWidth() / 2;
     }
 
     /**
-     * check if hit other
-     *
-     * @param other object to check
-     * @return hit or not
+     * activate
      */
-    public boolean hit(Object other) {
-        // edge-to-edge distance is non-positive
-        return distanceTo(other) <= 0;
+    public void activate() {
+        // add this to global array
+        ObjectBuilder.global.add(this);
+        // activate object
+        this.active = true;
     }
 
     /**
-     * generate random nonoverlapping position on field
-     * <p>
-     * guaranteed to spawn within field bounds
-     *
-     * @return {x, y} <- center of nonoverlapping position
+     * push to buffer
      */
-    public int[] generateRandomNonoverlappingPosition() {
-        // initial random positions generated within field
-        int x = Utility.randomRange((int) imageView.getImage().getWidth() / 2,
-                WIDTH - (int) imageView.getImage().getWidth() / 2);
-        int y = Utility.randomRange((int) imageView.getImage().getHeight() / 2,
-                HEIGHT - (int) imageView.getImage().getHeight() / 2);
-        // continuously generate positions until no overlap
-        while (true) {
-            // no overlap OK!
-            boolean flag = true;
-            // check over global array
-            for (Object object : Bucket.objects) {
-                // hypothetical position overlaps
-                if (distanceTo(object, x, y) < 0) {
-                    // regenerate positions
-                    x = Utility.randomRange((int) imageView.getImage().getWidth() / 2,
-                            WIDTH - (int) imageView.getImage().getWidth() / 2);
-                    y = Utility.randomRange((int) imageView.getImage().getHeight() / 2,
-                            HEIGHT - (int) imageView.getImage().getHeight() / 2);
-                    // signal overlap
-                    flag = false;
-                    break;
-                }
-            }
-            // stop loop once nonoverlapping position is found
-            if (flag) break;
-        }
-        // return position of center of avatar image
-        return new int[]{x, y};
+    public void buffer() {
+        // add this to buffer array
+        ObjectBuilder.buffer.add(this);
+    }
+
+    /**
+     * deactivate
+     */
+    public void kill() {
+        // update state
+        this.active = false;
+        this.dead = true;
+        // remove from window
+        this.pane.getChildren().remove(this.imageView);
     }
 }

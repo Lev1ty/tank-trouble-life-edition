@@ -1,62 +1,111 @@
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.transform.Rotate;
+import javafx.scene.transform.Translate;
+
 /**
- * tank class
+ * tank
  *
  * @author adam
  */
-public class Tank extends Friendable {
+public class Tank extends DynamicObject {
     /**
-     * movement per frame
-     */
-    public static final double STEP = 2;
-    /**
-     * fire state
+     * fire flag
      */
     public boolean fire;
     /**
-     * score counter
+     * AI flag
      */
-    public int kills;
-    /**
-     * bullet counter
-     */
-    public int bullets;
+    public boolean ai;
 
     /**
-     * randomized-value constructor
-     *
-     * @param imagePath path to avatar image of tank
+     * default constructor
      */
-    public Tank(String imagePath) {
-        super(imagePath, STEP);
-        // zero score
-        kills = 0;
-        bullets = 0;
+    public Tank(boolean ai) {
+        super();
+        this.ai = ai;
+    }
+
+    @Override
+    public void act() {
+        this.updateRotatePivot();
+        if (this.north) {
+            this.goNorth();
+        }
+        if (this.south) {
+            this.goSouth();
+        }
+        if (this.east) {
+            this.goEast();
+        }
+        if (this.west) {
+            this.goWest();
+        }
+        if (this.outOfBounds()) {
+            this.stuck();
+        }
+    }
+
+    @Override
+    public void interact(Object other) {
+        // don't interact with self
+        if (this.id == other.id) {
+            return;
+        }
+        // collision
+        if (this.edgeToEdgeDistance(other) <= 0) {
+            this.stuck();
+        }
+        // fire
+        if (this.fire) {
+            // reset trigger
+            this.fire = false;
+            // spawn bullet
+            ObjectBuilder objectBuilder = new Bullet(this.id).setImageView(new ImageView(new Image("bullet.png")))
+                    .setPane(Constants.pane).addImageViewToPane()
+                    .setRotate(new Rotate(), this.rotate.getPivotX(), this.rotate.getPivotY(), this.rotate.getAngle())
+                    .addRotateToImageView();
+            objectBuilder.setTranslate(new Translate(),
+                    this.translate.getX() + this.imageView.getImage().getWidth() / 2 - objectBuilder.imageView.getImage().getWidth() / 2,
+                    this.translate.getY() + this.imageView.getImage().getHeight() / 2 - objectBuilder.imageView.getImage().getHeight() / 2)
+                    .addTranslateToImageView()
+                    .buffer();
+        }
     }
 
     /**
-     * check if blocked
-     *
-     * @param other object to be checked
-     * @return whether this is blocked by object
+     * stuck
      */
-    public boolean block(Object other) {
-        return !(other instanceof Bullet) && id != other.id && hit(other);
+    private void stuck() {
+        if (this.north & this.east) this.east = false;
+        if (this.north & this.west) this.west = false;
+        if (this.south & this.east) this.east = false;
+        if (this.south & this.west) this.west = false;
+        if (this.north) this.goSouth();
+        if (this.south) this.goNorth();
+        if (this.east) this.goWest();
+        if (this.west) this.goEast();
     }
 
-    /**
-     * to-do when blocked
-     */
-    public void blocked() {
-        // only allow one button to be effective to prevent black hole effect
-        // north and south take priority
-        if (north & east) east = false;
-        if (north & west) west = false;
-        if (south & east) east = false;
-        if (south & west) west = false;
-        // counteract headings to simulate no movement
-        if (north) goSouth();
-        if (south) goNorth();
-        if (east) goWest();
-        if (west) goEast();
+    @Override
+    protected void goNorth() {
+        this.translate.setX(this.translate.getX() + Constants.TANK_MOVEMENT * Math.cos(this.rotate.getAngle() * Math.PI / 180));
+        this.translate.setY(this.translate.getY() + Constants.TANK_MOVEMENT * Math.sin(this.rotate.getAngle() * Math.PI / 180));
+    }
+
+    @Override
+    protected void goSouth() {
+        this.translate.setX(this.translate.getX() - Constants.TANK_MOVEMENT * Math.cos(this.rotate.getAngle() * Math.PI / 180));
+        this.translate.setY(this.translate.getY() - Constants.TANK_MOVEMENT * Math.sin(this.rotate.getAngle() * Math.PI / 180));
+    }
+
+    @Override
+    protected void goEast() {
+        this.rotate.setAngle(this.rotate.getAngle() + Constants.TANK_MOVEMENT);
+    }
+
+    @Override
+    protected void goWest() {
+        this.rotate.setAngle(this.rotate.getAngle() - Constants.TANK_MOVEMENT);
     }
 }
