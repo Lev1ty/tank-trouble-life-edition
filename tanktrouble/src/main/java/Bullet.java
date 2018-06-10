@@ -1,3 +1,5 @@
+import javafx.geometry.*;
+import java.lang.Math.*;
 /**
  * bullet
  *
