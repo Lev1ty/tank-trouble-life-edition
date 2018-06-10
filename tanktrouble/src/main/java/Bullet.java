@@ -1,3 +1,5 @@
+import javafx.geometry.*;
+import java.lang.Math.*;
 /**
  * bullet class
  *
@@ -62,8 +64,49 @@ public class Bullet extends Friendable {
     /**
      * to-do when bounced
      */
-    public void bounced() {
-        rotate.setAngle(rotate.getAngle() * Math.E * Math.PI * Utility.random.nextDouble());
+    //for collisions with bushes
+    public void bounced(Object other) {
+       rotate.setAngle(rotate.getAngle()+88);
+    }
+
+    public void bounced(){
+        //evaluate four corners
+        if(Math.abs(translate.getX()) < 10 && Math.abs(translate.getY()) < 10){
+            rotate.setAngle(45);
+        }
+        else if(Math.abs(translate.getX()) < 10 && Math.abs(translate.getY()-900) < 10){
+            rotate.setAngle(315);
+        }
+        else if(Math.abs(translate.getX()-1600) < 10 && Math.abs(translate.getY()-900) < 10){
+            rotate.setAngle(235);
+        }
+        else if(Math.abs(translate.getX()-1600) < 10 && Math.abs(translate.getY()) < 10){
+            rotate.setAngle(135);
+        }
+        else if(Math.abs(translate.getX()-1600) < 10){
+            if(rotate.getAngle() > 270 && rotate.getAngle() < 360)
+                rotate.setAngle(540-rotate.getAngle());
+            else
+                rotate.setAngle(180 - rotate.getAngle());
+        }
+        else if(Math.abs(translate.getX()) < 10){
+            if(rotate.getAngle() > 90 && rotate.getAngle() < 180)
+                rotate.setAngle(180 - rotate.getAngle());
+            else
+                rotate.setAngle(540-rotate.getAngle());
+        }
+        else if(Math.abs(translate.getY()) < 10){
+            if(rotate.getAngle() > 180 && rotate.getAngle() < 270)
+                rotate.setAngle(360 - rotate.getAngle());
+            else
+                rotate.setAngle(360-rotate.getAngle());
+        }
+        else if(Math.abs(translate.getY()-900) < 10){
+            if(rotate.getAngle() > 180 && rotate.getAngle() < 270)
+                rotate.setAngle(360 - rotate.getAngle());
+            else
+                rotate.setAngle(360-rotate.getAngle());
+        }
     }
 
     /**

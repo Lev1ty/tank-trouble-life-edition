@@ -286,7 +286,7 @@ public class Main extends Application implements ApplicationParameters {
                                 }
                                 // check for bushes and act accordingly
                                 if ((object1 instanceof Bush) && ((Bullet) object).bounce(object1))
-                                    ((Bullet) object).bounced();
+                                    ((Bullet) object).bounced(object1);
                             }
                         }
                     }
