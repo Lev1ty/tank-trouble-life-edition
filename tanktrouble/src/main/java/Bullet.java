@@ -64,41 +64,40 @@ public class Bullet extends DynamicObject {
     protected void reverse() {
         // hard code for angle of reflection of four walls
         // evaluate four corners
-        if (Math.abs(translate.getX()) < 10 && Math.abs(translate.getY()) < 10) {
-            rotate.setAngle(45);
-        } else if (Math.abs(translate.getX()) < 10 && Math.abs(translate.getY() - Constants.HEIGHT) < 10) {
-            rotate.setAngle(315);
-        } else if (Math.abs(translate.getX() - Constants.WIDTH) < 10 && Math.abs(translate.getY() - Constants.HEIGHT) < 10) {
-            rotate.setAngle(235);
-        } else if (Math.abs(translate.getX() - Constants.WIDTH) < 10 && Math.abs(translate.getY()) < 10) {
-            rotate.setAngle(135);
-        } else if (Math.abs(translate.getX() - Constants.WIDTH) < 10) {
-            if (rotate.getAngle() > 270 && rotate.getAngle() < 360) {
-                rotate.setAngle(540 - rotate.getAngle());
+        if (Math.abs(this.translate.getX()) < epsilon && Math.abs(this.translate.getY()) < epsilon) {
+            this.rotate.setAngle(SOUTH_EAST);
+        } else if (Math.abs(this.translate.getX()) < epsilon && Math.abs(this.translate.getY() - HEIGHT) < epsilon) {
+            this.rotate.setAngle(NORTH_EAST);
+        } else if (Math.abs(this.translate.getX() - WIDTH) < epsilon && Math.abs(this.translate.getY() - HEIGHT) < epsilon) {
+            this.rotate.setAngle(NORTH_WEST);
+        } else if (Math.abs(this.translate.getX() - WIDTH) < epsilon && Math.abs(this.translate.getY()) < epsilon) {
+            this.rotate.setAngle(SOUTH_WEST);
+        } else if (Math.abs(this.translate.getX() - WIDTH) < epsilon) {
+            if (this.rotate.getAngle() > THREE_QUART_TURN && this.rotate.getAngle() < FULL_TURN) {
+                this.rotate.setAngle(THREE_HALF_TURN - this.rotate.getAngle());
             } else {
-                rotate.setAngle(180 - rotate.getAngle());
+                this.rotate.setAngle(HALF_TURN - this.rotate.getAngle());
             }
-        } else if (Math.abs(translate.getX()) < 10) {
-            if (rotate.getAngle() > 90 && rotate.getAngle() < 180) {
-                rotate.setAngle(180 - rotate.getAngle());
+        } else if (Math.abs(this.translate.getX()) < epsilon) {
+            if (this.rotate.getAngle() > QUART_TURN && this.rotate.getAngle() < HALF_TURN) {
+                this.rotate.setAngle(HALF_TURN - this.rotate.getAngle());
             } else {
-                rotate.setAngle(540 - rotate.getAngle());
+                this.rotate.setAngle(THREE_HALF_TURN - this.rotate.getAngle());
             }
-        } else if (Math.abs(translate.getY()) < 10) {
-            if (rotate.getAngle() > 180 && rotate.getAngle() < 270) {
-                rotate.setAngle(360 - rotate.getAngle());
+        } else if (Math.abs(this.translate.getY()) < epsilon) {
+            if (this.rotate.getAngle() > HALF_TURN && this.rotate.getAngle() < THREE_QUART_TURN) {
+                this.rotate.setAngle(FULL_TURN - this.rotate.getAngle());
             } else {
-                rotate.setAngle(360 - rotate.getAngle());
+                this.rotate.setAngle(FULL_TURN - this.rotate.getAngle());
             }
-        } else if (Math.abs(translate.getY() - 900) < 10) {
-            if (rotate.getAngle() > 180 && rotate.getAngle() < 270) {
-                rotate.setAngle(360 - rotate.getAngle());
+        } else if (Math.abs(this.translate.getY() - HEIGHT) < epsilon) {
+            if (this.rotate.getAngle() > HALF_TURN && this.rotate.getAngle() < THREE_QUART_TURN) {
+                this.rotate.setAngle(FULL_TURN - this.rotate.getAngle());
             } else {
-                rotate.setAngle(360 - rotate.getAngle());
+                this.rotate.setAngle(FULL_TURN - this.rotate.getAngle());
             }
         } else {
-            // temporary fix to collision with objects
-            rotate.setAngle(rotate.getAngle() + 90);
+            this.rotate.setAngle(this.rotate.getAngle() + QUART_TURN);
         }
     }
 
