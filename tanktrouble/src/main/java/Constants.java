@@ -71,7 +71,7 @@ public interface Constants {
     /**
      * slow multiplier (increase to slow down)
      */
-    double SLOW_MULTIPLIER = .75;
+    double SLOW_MULTIPLIER = .45;
     /**
      * pane
      */
