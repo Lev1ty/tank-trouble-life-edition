@@ -5,6 +5,8 @@ import javafx.scene.transform.Translate;
 
 /**
  * object builder
+ * <p>
+ * use builder paradigm to clarify construction of game objects
  *
  * @author adam
  */
@@ -14,23 +16,22 @@ public abstract class ObjectBuilder extends Object {
      */
     public ObjectBuilder setTranslateToRandomNonOverlappingPosition() {
         // initialize to random position
-        this.translate.setX(Constants.randomRange(0, (int) (WIDTH - this.imageView.getImage().getWidth())));
-        this.translate.setY(Constants.randomRange(0, (int) (HEIGHT - this.imageView.getImage().getHeight())));
+        translate.setX(Constants.randomRange(0, (int) (WIDTH - imageView.getImage().getWidth())));
+        translate.setY(Constants.randomRange(0, (int) (HEIGHT - imageView.getImage().getHeight())));
         // generate until random does not overlap
         while (true) {
             // initialize to no overlap
             boolean good = true;
             // check for overlap
-            for (Object object : ObjectBuilder.global) {
-                if (id != object.id && this.edgeToEdgeDistance(object) < 0) {
+            for (Object object : global)
+                if (id != object.id && edgeToEdgeDistance(object) < 0) {
                     // there is overlap
                     good = false;
                     // generate another random position
-                    this.translate.setX(Constants.randomRange(0, (int) (WIDTH - this.imageView.getImage().getWidth())));
-                    this.translate.setY(Constants.randomRange(0, (int) (HEIGHT - this.imageView.getImage().getHeight())));
+                    translate.setX(Constants.randomRange(0, (int) (WIDTH - imageView.getImage().getWidth())));
+                    translate.setY(Constants.randomRange(0, (int) (HEIGHT - imageView.getImage().getHeight())));
                     break;
                 }
-            }
             // break if no overlap
             if (good) {
                 return this;
@@ -42,7 +43,7 @@ public abstract class ObjectBuilder extends Object {
      * add image view to pane
      */
     public ObjectBuilder addImageViewToPane() {
-        this.pane.getChildren().add(this.imageView);
+        pane.getChildren().add(imageView);
         return this;
     }
 
@@ -50,7 +51,7 @@ public abstract class ObjectBuilder extends Object {
      * add translate to image view
      */
     public ObjectBuilder addTranslateToImageView() {
-        this.imageView.getTransforms().add(this.translate);
+        imageView.getTransforms().add(translate);
         return this;
     }
 
@@ -58,7 +59,7 @@ public abstract class ObjectBuilder extends Object {
      * add rotate to image view
      */
     public ObjectBuilder addRotateToImageView() {
-        this.imageView.getTransforms().add(this.rotate);
+        imageView.getTransforms().add(rotate);
         return this;
     }
 
@@ -82,9 +83,9 @@ public abstract class ObjectBuilder extends Object {
      * set translate
      */
     public ObjectBuilder setTranslate(Translate translate, double x, double y) {
+        translate.setX(x);
+        translate.setY(y);
         this.translate = translate;
-        this.translate.setX(x);
-        this.translate.setY(y);
         return this;
     }
 
@@ -99,10 +100,10 @@ public abstract class ObjectBuilder extends Object {
      * set rotate
      */
     public ObjectBuilder setRotate(Rotate rotate, double x, double y, double d) {
+        rotate.setPivotX(x);
+        rotate.setPivotY(y);
+        rotate.setAngle(d);
         this.rotate = rotate;
-        this.rotate.setPivotX(x);
-        this.rotate.setPivotY(y);
-        this.rotate.setAngle(d);
         return this;
     }
 

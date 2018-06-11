@@ -19,21 +19,17 @@ public abstract class Object implements Constants {
     /**
      * global buffer array
      * <p>
-     * dynamically generated objects are pushed to buffer during the frame to avoid concurrent modification exception
+     * dynamically generated objects are pushed to buffer during each frame to avoid concurrent modification exception
      */
     public static List<Object> buffer = new ArrayList<>();
     /**
      * id count
      */
-    public static int idCount = 0;
+    private static int idCount = 0;
     /**
      * id
      */
     public int id;
-    /**
-     * active status
-     */
-    public boolean active;
     /**
      * dead status
      */
@@ -60,32 +56,32 @@ public abstract class Object implements Constants {
      */
     public Object() {
         // set id
-        this.id = ObjectBuilder.idCount;
+        id = idCount;
         // update id count
         idCount++;
-        // default inactive
-        this.active = false;
         // default alive
-        this.dead = false;
+        dead = false;
     }
 
     /**
-     * interact with this
+     * actOn with this
      */
     public abstract void act();
 
     /**
-     * interact with other object
+     * actOn with other object
+     * <p>
+     * exert a change on the other object
      */
-    public abstract void interact(Object other);
+    public abstract void actOn(Object other);
 
     /**
      * center to center distance
      */
     public double centerToCenterDistance(Object other) {
-        return Math.sqrt(Math.pow((this.translate.getX() + this.imageView.getImage().getWidth() / 2)
+        return Math.sqrt(Math.pow((translate.getX() + imageView.getImage().getWidth() / 2)
                 - (other.translate.getX() + other.imageView.getImage().getWidth() / 2), 2)
-                + Math.pow((this.translate.getY() + this.imageView.getImage().getHeight() / 2)
+                + Math.pow((translate.getY() + imageView.getImage().getHeight() / 2)
                 - (other.translate.getY() + other.imageView.getImage().getHeight() / 2), 2));
     }
 
@@ -93,8 +89,8 @@ public abstract class Object implements Constants {
      * edge to edge distance
      */
     public double edgeToEdgeDistance(Object other) {
-        return this.centerToCenterDistance(other)
-                - this.imageView.getImage().getWidth() / 2
+        return centerToCenterDistance(other)
+                - imageView.getImage().getWidth() / 2
                 - other.imageView.getImage().getWidth() / 2;
     }
 
@@ -103,9 +99,7 @@ public abstract class Object implements Constants {
      */
     public void activate() {
         // add this to global array
-        ObjectBuilder.global.add(this);
-        // activate object
-        this.active = true;
+        global.add(this);
     }
 
     /**
@@ -113,17 +107,15 @@ public abstract class Object implements Constants {
      */
     public void buffer() {
         // add this to buffer array
-        ObjectBuilder.buffer.add(this);
+        buffer.add(this);
     }
 
     /**
      * deactivate
      */
     public void kill() {
-        // update state
-        this.active = false;
-        this.dead = true;
+        dead = true;
         // remove from window
-        this.pane.getChildren().remove(this.imageView);
+        pane.getChildren().remove(imageView);
     }
 }

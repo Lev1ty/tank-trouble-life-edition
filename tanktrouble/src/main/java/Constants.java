@@ -25,17 +25,53 @@ public interface Constants {
      */
     int BUSH_COUNT = 20;
     /**
+     * number of mud puddles
+     */
+    int MUD_COUNT = 10;
+    /**
+     * screen refresh multiplier
+     */
+    double REFRESH_MULTIPLIER = 1;
+    /**
+     * screen refresh rate (120 Hz base rate)
+     */
+    double REFRESH_RATE = 120 * REFRESH_MULTIPLIER;
+    /**
      * movement multiplier
      */
     double MOVEMENT_MULTIPLIER = 1;
     /**
-     * bullet movement
+     * bullet movement (pixel per frame)
      */
-    double BULLET_MOVEMENT = 1.5 * MOVEMENT_MULTIPLIER;
+    double BULLET_MOVEMENT = 1.5 * MOVEMENT_MULTIPLIER / REFRESH_MULTIPLIER;
     /**
-     * tank movement
+     * tank movement (pixel per frame)
      */
-    double TANK_MOVEMENT = 1 * MOVEMENT_MULTIPLIER;
+    double TANK_MOVEMENT = 1 * MOVEMENT_MULTIPLIER / REFRESH_MULTIPLIER;
+    /**
+     * turn multiplier
+     */
+    double TURN_MULTIPLIER = 2;
+    /**
+     * bullet duration (seconds)
+     */
+    double BULLET_DURATION = 5;
+    /**
+     * bullet score
+     */
+    double BULLET_SCORE = 1;
+    /**
+     * bullet count
+     */
+    int BULLET_COUNT = 5;
+    /**
+     * reload time (seconds)
+     */
+    double RELOAD_TIME = .1;
+    /**
+     * slow multiplier (increase to slow down)
+     */
+    double SLOW_MULTIPLIER = .75;
     /**
      * pane
      */
@@ -57,6 +93,6 @@ public interface Constants {
      * @return random double within range
      */
     static double randomRange(int low, int high) {
-        return Constants.random.nextInt(high - low) + low + Constants.random.nextDouble();
+        return random.nextInt(high - low) + low + random.nextDouble();
     }
 }

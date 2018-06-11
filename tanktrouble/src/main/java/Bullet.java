@@ -1,5 +1,3 @@
-import javafx.geometry.*;
-import java.lang.Math.*;
 /**
  * bullet
  *
@@ -9,96 +7,120 @@ public class Bullet extends DynamicObject {
     /**
      * owner id
      */
-    public int ownerId;
+    public Tank owner;
+    /**
+     * timestamp
+     */
+    private long timestamp;
 
     /**
      * default constructor
      */
-    public Bullet(int ownerId) {
+    public Bullet(Tank owner) {
         super();
-        this.ownerId = ownerId;
+        // set tank that fired this
+        this.owner = owner;
+        // start time to Constants.BULLET_DURATION
+        timestamp = System.nanoTime();
+        // perpetual motion
+        north = true;
     }
 
     @Override
     public void act() {
-        this.updateRotatePivot();
-        if (this.outOfBounds()) {
-            this.bounce();
+        super.act();
+        // check lifetime
+        if (1.0 * (System.nanoTime() - timestamp) / 1000000000L > Constants.BULLET_DURATION) {
+            kill();
         }
-        this.goNorth();
     }
 
     @Override
-    public void interact(Object other) {
-        if (this.id == other.id || this.ownerId == other.id) {
+    public void actOn(Object other) {
+        // don't actOn with self or owner
+        if (id == other.id || owner.id == other.id) {
             return;
         }
-        if (this.edgeToEdgeDistance(other) <= 0) {
-            this.bounce();
+        // kill
+        if (edgeToEdgeDistance(other) <= 0 && other instanceof Tank) {
+            other.kill();
+            kill();
         }
+    }
+
+    @Override
+    public void kill() {
+        super.kill();
+        // reload one bullet for owner
+        owner.bullets--;
+        // accumulate owner score
+        owner.score += Constants.BULLET_SCORE;
     }
 
     /**
      * bounce
      */
-    private void bounce() {
+    @Override
+    protected void reverse() {
+        // hard code for angle of reflection of four walls
         // evaluate four corners
-        if (Math.abs(this.translate.getX()) < 10 && Math.abs(this.translate.getY()) < 10) {
-            this.rotate.setAngle(45);
-        } else if (Math.abs(this.translate.getX()) < 10 && Math.abs(this.translate.getY() - 900) < 10) {
-            this.rotate.setAngle(315);
-        } else if (Math.abs(this.translate.getX() - 1600) < 10 && Math.abs(this.translate.getY() - 900) < 10) {
-            this.rotate.setAngle(235);
-        } else if (Math.abs(this.translate.getX() - 1600) < 10 && Math.abs(this.translate.getY()) < 10) {
-            this.rotate.setAngle(135);
-        } else if (Math.abs(this.translate.getX() - 1600) < 10) {
-            if (this.rotate.getAngle() > 270 && this.rotate.getAngle() < 360) {
-                this.rotate.setAngle(540 - this.rotate.getAngle());
+        if (Math.abs(translate.getX()) < 10 && Math.abs(translate.getY()) < 10) {
+            rotate.setAngle(45);
+        } else if (Math.abs(translate.getX()) < 10 && Math.abs(translate.getY() - Constants.HEIGHT) < 10) {
+            rotate.setAngle(315);
+        } else if (Math.abs(translate.getX() - Constants.WIDTH) < 10 && Math.abs(translate.getY() - Constants.HEIGHT) < 10) {
+            rotate.setAngle(235);
+        } else if (Math.abs(translate.getX() - Constants.WIDTH) < 10 && Math.abs(translate.getY()) < 10) {
+            rotate.setAngle(135);
+        } else if (Math.abs(translate.getX() - Constants.WIDTH) < 10) {
+            if (rotate.getAngle() > 270 && rotate.getAngle() < 360) {
+                rotate.setAngle(540 - rotate.getAngle());
             } else {
-                this.rotate.setAngle(180 - this.rotate.getAngle());
+                rotate.setAngle(180 - rotate.getAngle());
             }
-        } else if (Math.abs(this.translate.getX()) < 10) {
-            if (this.rotate.getAngle() > 90 && this.rotate.getAngle() < 180) {
-                this.rotate.setAngle(180 - this.rotate.getAngle());
+        } else if (Math.abs(translate.getX()) < 10) {
+            if (rotate.getAngle() > 90 && rotate.getAngle() < 180) {
+                rotate.setAngle(180 - rotate.getAngle());
             } else {
-                this.rotate.setAngle(540 - this.rotate.getAngle());
+                rotate.setAngle(540 - rotate.getAngle());
             }
-        } else if (Math.abs(this.translate.getY()) < 10) {
-            if (this.rotate.getAngle() > 180 && this.rotate.getAngle() < 270) {
-                this.rotate.setAngle(360 - this.rotate.getAngle());
+        } else if (Math.abs(translate.getY()) < 10) {
+            if (rotate.getAngle() > 180 && rotate.getAngle() < 270) {
+                rotate.setAngle(360 - rotate.getAngle());
             } else {
-                this.rotate.setAngle(360 - this.rotate.getAngle());
+                rotate.setAngle(360 - rotate.getAngle());
             }
-        } else if (Math.abs(this.translate.getY() - 900) < 10) {
-            if (this.rotate.getAngle() > 180 && this.rotate.getAngle() < 270) {
-                this.rotate.setAngle(360 - this.rotate.getAngle());
+        } else if (Math.abs(translate.getY() - 900) < 10) {
+            if (rotate.getAngle() > 180 && rotate.getAngle() < 270) {
+                rotate.setAngle(360 - rotate.getAngle());
             } else {
-                this.rotate.setAngle(360 - this.rotate.getAngle());
+                rotate.setAngle(360 - rotate.getAngle());
             }
         } else {
-            this.rotate.setAngle(this.rotate.getAngle() + 90);
+            // temporary fix to collision with objects
+            rotate.setAngle(rotate.getAngle() + 90);
         }
     }
 
     @Override
     protected void goNorth() {
-        this.translate.setX(this.translate.getX() + Constants.BULLET_MOVEMENT * Math.cos(this.rotate.getAngle() * Math.PI / 180));
-        this.translate.setY(this.translate.getY() + Constants.BULLET_MOVEMENT * Math.sin(this.rotate.getAngle() * Math.PI / 180));
+        translate.setX(translate.getX() + movementMultiplier * BULLET_MOVEMENT * Math.cos(rotate.getAngle() * Math.PI / 180));
+        translate.setY(translate.getY() + movementMultiplier * BULLET_MOVEMENT * Math.sin(rotate.getAngle() * Math.PI / 180));
     }
 
     @Override
     protected void goSouth() {
-        this.translate.setX(this.translate.getX() - Constants.BULLET_MOVEMENT * Math.cos(this.rotate.getAngle() * Math.PI / 180));
-        this.translate.setY(this.translate.getY() - Constants.BULLET_MOVEMENT * Math.sin(this.rotate.getAngle() * Math.PI / 180));
+        translate.setX(translate.getX() - movementMultiplier * BULLET_MOVEMENT * Math.cos(rotate.getAngle() * Math.PI / 180));
+        translate.setY(translate.getY() - movementMultiplier * BULLET_MOVEMENT * Math.sin(rotate.getAngle() * Math.PI / 180));
     }
 
     @Override
     protected void goEast() {
-        this.rotate.setAngle(this.rotate.getAngle() + Constants.BULLET_MOVEMENT);
+        rotate.setAngle(rotate.getAngle() + movementMultiplier * TURN_MULTIPLIER * BULLET_MOVEMENT);
     }
 
     @Override
     protected void goWest() {
-        this.rotate.setAngle(this.rotate.getAngle() - Constants.BULLET_MOVEMENT);
+        rotate.setAngle(rotate.getAngle() - movementMultiplier * TURN_MULTIPLIER * BULLET_MOVEMENT);
     }
 }
