@@ -47,6 +47,8 @@ public class Bullet extends DynamicObject {
         if (edgeToEdgeDistance(other) <= 0 && other instanceof Tank) {
             other.kill();
             kill();
+            //add Sound
+            snd.playTankDestroy();
         }
     }
 

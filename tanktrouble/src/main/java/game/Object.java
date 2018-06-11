@@ -52,6 +52,10 @@ public abstract class Object implements Constants {
      * rotate
      */
     public Rotate rotate;
+    /**
+     * Sound Features
+     */
+    protected Sound snd;
 
     /**
      * default constructor
@@ -63,6 +67,8 @@ public abstract class Object implements Constants {
         idCount++;
         // default alive
         dead = false;
+        //set up sound
+        snd = new Sound();
     }
 
     /**

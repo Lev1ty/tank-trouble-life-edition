@@ -15,6 +15,7 @@ public class Mud extends ObjectBuilder {
     public void actOn(Object other) {
         // slow tank object
         if (other instanceof Tank && edgeToEdgeDistance(other) <= 0) {
+            snd.playMudSound();
             // apply slowing
             ((DynamicObject) other).movementMultiplier = SLOW_MULTIPLIER;
             // counteract heading

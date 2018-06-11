@@ -87,6 +87,7 @@ public abstract class Tank extends DynamicObject {
      */
     @Override
     protected void reverse() {
+        snd.playCollideSound();
         // constrain to one direction to avoid gravity bug
         // gravity bug is when reversing in two directions
         // actually pulls this towards the forward direction
