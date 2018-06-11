@@ -25,7 +25,7 @@ public interface Constants {
     /**
      * number of bushes
      */
-    int BUSH_COUNT = 20;
+    int BUSH_COUNT = 40;
     /**
      * number of mud puddles
      */

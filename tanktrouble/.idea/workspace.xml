@@ -1,34 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1cf6c519-32d1-42fe-b07e-342ce2f1dfd9" name="Default" comment="parameter tuning">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/AI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnet/FeedForward.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnet/Input.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnet/Network.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnet/Output.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/neuralnet/Perceptron.java" afterDir="false" />
+    <list default="true" id="1cf6c519-32d1-42fe-b07e-342ce2f1dfd9" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Bullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bush.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Bush.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DynamicObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/DynamicObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mud.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Mud.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Object.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ObjectBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/ObjectBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Tank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Bullet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Bush.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Constants.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DynamicObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Object.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ObjectBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Tank.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,11 +16,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/game/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="32" column="35" lean-forward="true" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/game/Constants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="143">
+              <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Bush.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/game/Bush.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="143">
+              <caret line="18" column="50" lean-forward="true" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/game/AI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+            <state relative-caret-position="170">
+              <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -90,16 +93,16 @@
         <option value="$PROJECT_DIR$/src/main/java/game/Perceptron.java" />
         <option value="$PROJECT_DIR$/src/main/java/neuralnet/Input.java" />
         <option value="$PROJECT_DIR$/src/main/java/neuralnet/Output.java" />
-        <option value="$PROJECT_DIR$/src/main/java/game/Constants.java" />
         <option value="$PROJECT_DIR$/src/main/java/neuralnet/FeedForward.java" />
         <option value="$PROJECT_DIR$/src/main/java/game/Mud.java" />
         <option value="$PROJECT_DIR$/src/main/java/game/Bush.java" />
         <option value="$PROJECT_DIR$/src/main/java/neuralnet/Perceptron.java" />
         <option value="$PROJECT_DIR$/src/main/java/neuralnet/Network.java" />
         <option value="$PROJECT_DIR$/src/main/java/game/Tank.java" />
-        <option value="$PROJECT_DIR$/src/main/java/game/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/game/Player.java" />
         <option value="$PROJECT_DIR$/src/main/java/game/AI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/game/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/game/Constants.java" />
       </list>
     </option>
   </component>
@@ -276,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528682293339</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="basic neural network">
+      <created>1528730452556</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1528730452556</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -292,7 +302,7 @@
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50065106" side_tool="true" weight="0.3294423" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.49934897" weight="0.3294423" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49934897" weight="0.3294423" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49934897" visible="true" weight="0.3294423" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="0" />
@@ -320,7 +330,8 @@
     <MESSAGE value="add mud" />
     <MESSAGE value="fix overwrite" />
     <MESSAGE value="parameter tuning" />
-    <option name="LAST_COMMIT_MESSAGE" value="parameter tuning" />
+    <MESSAGE value="basic neural network" />
+    <option name="LAST_COMMIT_MESSAGE" value="basic neural network" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -401,24 +412,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/game/Bush.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/game/Bullet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="97" column="20" lean-forward="true" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/game/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -458,13 +455,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/game/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="122" column="62" selection-start-line="122" selection-start-column="62" selection-end-line="122" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/game/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -472,10 +462,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/game/Bush.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="18" column="50" lean-forward="true" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/game/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="32" column="35" lean-forward="true" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/game/AI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+        <state relative-caret-position="170">
+          <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/game/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
         </state>
       </provider>
     </entry>
