@@ -23,6 +23,10 @@ public interface Constants {
      */
     int AI_COUNT = 20;
     /**
+     * number of player tanks
+     */
+    int PLAYER_COUNT = 2;
+    /**
      * number of bushes
      */
     int BUSH_COUNT = 40;
@@ -122,7 +126,7 @@ public interface Constants {
     /**
      * random range
      *
-     * @param low lower bound
+     * @param low  lower bound
      * @param high upper bound
      * @return random double within range
      */

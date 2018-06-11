@@ -5,40 +5,36 @@ import game.Constants;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FeedForward extends Perceptron {
+public class DotPlusLayer extends Layer {
     /**
      * weights
      */
-    List<List<Double>> weights;
+    List<List<Double[]>> weights;
 
     /**
      * value constructor
      *
      * @param neurons number of neurons in this perceptron
      */
-    public FeedForward(int neurons) {
+    public DotPlusLayer(int neurons) {
         super(neurons, new ArrayList<>());
-        if (!(this instanceof Input)) {
-            previous = network.get(network.size() - 2);
-            previous.next = this;
-        }
     }
 
     /**
      * initialize weights
      *
-     * @param low lower bound of weights
+     * @param low  lower bound of weights
      * @param high higher bound of weights
      */
-    public FeedForward setRandomWeights(int low, int high) {
-        List<List<Double>> weights = new ArrayList<>();
+    public DotPlusLayer setRandomWeightsBiases(int low, int high) {
+        List<List<Double[]>> weights = new ArrayList<>();
         for (int i = 0; i < next.neurons; i++) {
             weights.add(new ArrayList<>());
             for (int j = 0; j < neurons; j++) {
-                weights.get(i).add(Constants.randomRange(low, high));
+                weights.get(i).add(new Double[]{Constants.randomRange(low, high), Constants.randomRange(low, high)});
             }
         }
-        return setWeights(weights);
+        return setWeightsBiases(weights);
     }
 
     /**
@@ -46,9 +42,9 @@ public class FeedForward extends Perceptron {
      *
      * @param weights template
      */
-    public FeedForward setWeights(List<List<Double>> weights) {
+    public DotPlusLayer setWeightsBiases(List<List<Double[]>> weights) {
         assert weights.size() == next.neurons;
-        for (List<Double> list : weights) {
+        for (List<Double[]> list : weights) {
             assert list.size() == neurons;
         }
         this.weights = weights;
@@ -60,9 +56,18 @@ public class FeedForward extends Perceptron {
         for (int i = 0; i < next.neurons; i++) {
             double sum = 0;
             for (int j = 0; j < neurons; j++) {
-                sum += state.get(j) * weights.get(i).get(j);
+                sum += state.get(j) * weights.get(i).get(j)[0] + weights.get(i).get(j)[1];
             }
             next.state.add(sum);
+        }
+    }
+
+    @Override
+    public void add() {
+        super.add();
+        if (!(this instanceof InputLayer)) {
+            previous = network.get(network.size() - 2);
+            previous.next = this;
         }
     }
 }

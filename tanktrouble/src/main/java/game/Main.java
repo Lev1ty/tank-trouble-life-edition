@@ -9,7 +9,6 @@ import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Translate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import neuralnet.Network;
 
 public class Main extends Application implements Constants {
     /**
@@ -117,7 +116,7 @@ public class Main extends Application implements Constants {
      */
     private void addAITanks() {
         for (int i = 0; i < AI_COUNT; i++) {
-            new AI(new Network()).setImageView(new ImageView(new Image("black_player.png")))
+            new AI().setImageView(new ImageView(new Image("black_player.png")))
                     .setPane(pane).addImageViewToPane()
                     .setRotate(new Rotate()).addRotateToImageView()
                     .setTranslate(new Translate()).addTranslateToImageView()
