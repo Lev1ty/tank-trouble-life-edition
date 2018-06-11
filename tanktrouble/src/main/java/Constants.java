@@ -50,6 +50,38 @@ public interface Constants {
     Random random = new Random();
 
     /**
+     * cardinal direction constants
+     */
+
+    int SOUTH_EAST = 45;
+
+    int SOUTH_WEST = 135;
+
+    int NORTH_WEST = 225;
+
+    int NORTH_EAST = 315;
+
+    /**
+     * rotation constants
+     */
+
+    int FULL_TURN = 360;
+
+    int HALF_TURN = 180;
+
+    int THREE_QUART_TURN = 270;
+
+    int QUART_TURN = 90;
+
+    int THREE_HALF_TURN = 540;
+
+    /**
+     * small values
+     */
+
+    int epsilon = 10;
+
+    /**
      * random range
      *
      * @param low lower bound
