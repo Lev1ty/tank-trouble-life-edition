@@ -26,7 +26,7 @@ public class DotPlusLayer extends Layer {
      * @param low  lower bound of weights
      * @param high higher bound of weights
      */
-    public DotPlusLayer setRandomWeightsBiases(int low, int high) {
+    public void setRandomWeightsBiases(int low, int high) {
         List<List<Double[]>> weights = new ArrayList<>();
         for (int i = 0; i < next.neurons; i++) {
             weights.add(new ArrayList<>());
@@ -34,7 +34,7 @@ public class DotPlusLayer extends Layer {
                 weights.get(i).add(new Double[]{Constants.randomRange(low, high), Constants.randomRange(low, high)});
             }
         }
-        return setWeightsBiases(weights);
+        setWeightsBiases(weights);
     }
 
     /**
@@ -42,13 +42,12 @@ public class DotPlusLayer extends Layer {
      *
      * @param weights template
      */
-    public DotPlusLayer setWeightsBiases(List<List<Double[]>> weights) {
+    public void setWeightsBiases(List<List<Double[]>> weights) {
         assert weights.size() == next.neurons;
         for (List<Double[]> list : weights) {
             assert list.size() == neurons;
         }
         this.weights = weights;
-        return this;
     }
 
     @Override

@@ -65,7 +65,11 @@ public interface Constants {
     /**
      * bullet score
      */
-    double BULLET_SCORE = 1;
+    double BULLET_SCORE = 10;
+    /**
+     * reverse penalty
+     */
+    double REVERSE_PENALTY = 1;
     /**
      * bullet count
      */
@@ -78,6 +82,14 @@ public interface Constants {
      * slow multiplier (increase to slow down)
      */
     double SLOW_MULTIPLIER = .45;
+    /**
+     * input layer size
+     */
+    int INPUT_LAYER_SIZE = (AI_COUNT + PLAYER_COUNT) * 2;
+    /**
+     * output layer size
+     */
+    int OUTPUT_LAYER_SIZE = 5;
     /**
      * pane
      */
