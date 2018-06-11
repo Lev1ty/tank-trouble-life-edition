@@ -1,3 +1,5 @@
+package game;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.transform.Rotate;
@@ -8,15 +10,11 @@ import javafx.scene.transform.Translate;
  *
  * @author adam
  */
-public class Tank extends DynamicObject {
+public abstract class Tank extends DynamicObject {
     /**
      * fire flag
      */
     public boolean fire;
-    /**
-     * AI flag
-     */
-    public boolean ai;
     /**
      * bullet counter
      */
@@ -33,10 +31,8 @@ public class Tank extends DynamicObject {
     /**
      * default constructor
      */
-    public Tank(boolean ai) {
+    public Tank() {
         super();
-        // set AI status
-        this.ai = ai;
         // zero bullets to begin with
         bullets = 0;
         // zero score to begin with

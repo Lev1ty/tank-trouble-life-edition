@@ -1,3 +1,5 @@
+package game;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -12,7 +14,7 @@ public class Main extends Application implements Constants {
     /**
      * player tanks
      */
-    ObjectBuilder[] player;
+    private ObjectBuilder[] player;
 
     public static void main(String[] args) {
         launch(args);
@@ -92,13 +94,13 @@ public class Main extends Application implements Constants {
     private void addPlayerTanks() {
         player = new ObjectBuilder[]{
                 // player 1
-                new Tank(false).setImageView(new ImageView(new Image("red_player.png")))
+                new Player().setImageView(new ImageView(new Image("red_player.png")))
                         .setPane(pane).addImageViewToPane()
                         .setRotate(new Rotate()).addRotateToImageView()
                         .setTranslate(new Translate()).addTranslateToImageView()
                         .setTranslateToRandomNonOverlappingPosition(),
                 // player 2
-                new Tank(false).setImageView(new ImageView(new Image("green_player.png")))
+                new Player().setImageView(new ImageView(new Image("green_player.png")))
                         .setPane(pane).addImageViewToPane()
                         .setRotate(new Rotate()).addRotateToImageView()
                         .setTranslate(new Translate()).addTranslateToImageView()
@@ -114,7 +116,7 @@ public class Main extends Application implements Constants {
      */
     private void addAITanks() {
         for (int i = 0; i < AI_COUNT; i++) {
-            new Tank(true).setImageView(new ImageView(new Image("black_player.png")))
+            new AI().setImageView(new ImageView(new Image("black_player.png")))
                     .setPane(pane).addImageViewToPane()
                     .setRotate(new Rotate()).addRotateToImageView()
                     .setTranslate(new Translate()).addTranslateToImageView()

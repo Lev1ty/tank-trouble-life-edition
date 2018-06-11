@@ -1,3 +1,5 @@
+package game;
+
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.transform.Rotate;

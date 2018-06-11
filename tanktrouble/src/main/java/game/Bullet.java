@@ -1,3 +1,5 @@
+package game;
+
 /**
  * bullet
  *
@@ -20,7 +22,7 @@ public class Bullet extends DynamicObject {
         super();
         // set tank that fired this
         this.owner = owner;
-        // start time to Constants.BULLET_DURATION
+        // start time to game.Constants.BULLET_DURATION
         timestamp = System.nanoTime();
         // perpetual motion
         north = true;

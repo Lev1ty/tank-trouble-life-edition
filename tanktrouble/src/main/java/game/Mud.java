@@ -1,3 +1,5 @@
+package game;
+
 /**
  * mud
  *
@@ -11,8 +13,8 @@ public class Mud extends ObjectBuilder {
 
     @Override
     public void actOn(Object other) {
-        // slow any moving object
-        if (other instanceof DynamicObject && edgeToEdgeDistance(other) <= 0) {
+        // slow tank object
+        if (other instanceof Tank && edgeToEdgeDistance(other) <= 0) {
             // apply slowing
             ((DynamicObject) other).movementMultiplier = SLOW_MULTIPLIER;
             // counteract heading
