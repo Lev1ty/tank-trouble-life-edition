@@ -13,6 +13,21 @@ public class OutputLayer extends Layer {
         super(neurons, new ArrayList<>());
     }
 
+    /**
+     * argmax
+     */
+    public static int argmax(List<Double> list) {
+        int index = 0;
+        Double value = 0.0;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) > value) {
+                value = list.get(i);
+                index = i;
+            }
+        }
+        return index;
+    }
+
     @Override
     public void propagateForward() {
         // do nothing
@@ -30,20 +45,5 @@ public class OutputLayer extends Layer {
      */
     public List<Double> getOutput() {
         return state;
-    }
-
-    /**
-     * argmax
-     */
-    public static int argmax(List<Double> list) {
-        int index = 0;
-        Double value = 0.0;
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i) > value) {
-                value = list.get(i);
-                index = i;
-            }
-        }
-        return index;
     }
 }

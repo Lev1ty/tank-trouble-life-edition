@@ -64,11 +64,21 @@ public class AI extends Tank {
         west = false;
         // autopilot
         switch (OutputLayer.argmax(neuralNetwork.evaluate(collectInput()))) {
-            case 0: north = true; break;
-            case 1: south = true; break;
-            case 2: east = true; break;
-            case 3: west = true; break;
-            case 4: fire = true; break;
+            case 0:
+                north = true;
+                break;
+            case 1:
+                south = true;
+                break;
+            case 2:
+                east = true;
+                break;
+            case 3:
+                west = true;
+                break;
+            case 4:
+                fire = true;
+                break;
         }
     }
 }
