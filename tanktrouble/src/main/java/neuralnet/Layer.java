@@ -2,6 +2,7 @@ package neuralnet;
 
 import game.Constants;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,14 +51,8 @@ public abstract class Layer implements Constants {
         network.add(this);
     }
 
-    @Override
-    public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        if (this instanceof OutputLayer) {
-            stringBuilder.append(neurons).append("\n");
-        } else {
-            stringBuilder.append(next.neurons).append(" ").append(neurons).append("\n");
-        }
-        return stringBuilder.toString();
-    }
+    /**
+     * read layer
+     */
+    public abstract void readWeightsBiasesFromFile(File file);
 }

@@ -2,8 +2,11 @@ package neuralnet;
 
 import game.Constants;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class DotPlusLayer extends Layer {
     /**
@@ -71,16 +74,33 @@ public class DotPlusLayer extends Layer {
     }
 
     @Override
+    public void readWeightsBiasesFromFile(File file) {
+        List<List<Double[]>> weights = new ArrayList<>();
+        Scanner sc = null;
+        try {
+            sc = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return;
+        }
+        for (int i = 0; i < next.neurons; i++) {
+            weights.add(new ArrayList<>());
+            for (int j = 0; j < neurons; j++) {
+                weights.get(i).add(new Double[]{sc.nextDouble(), sc.nextDouble()});
+            }
+        }
+        setWeightsBiases(weights);
+    }
+
+    @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder(super.toString());
+        StringBuilder stringBuilder = new StringBuilder();
         for (List<Double[]> list : weights) {
             for (Double[] list1 : list) {
                 for (Double d : list1) {
                     stringBuilder.append(d).append(" ");
                 }
-                stringBuilder.append("\t");
             }
-            stringBuilder.append("\n");
         }
         return stringBuilder.toString();
     }

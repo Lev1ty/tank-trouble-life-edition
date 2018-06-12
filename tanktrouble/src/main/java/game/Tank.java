@@ -51,6 +51,7 @@ public abstract class Tank extends DynamicObject {
         }
         // fire
         if (fire) {
+            score -= FIRE_PENALTY;
             // reset trigger
             fire = false;
             // set last fire time to now

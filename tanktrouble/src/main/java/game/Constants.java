@@ -65,11 +65,15 @@ public interface Constants {
     /**
      * bullet score
      */
-    double BULLET_SCORE = 10;
+    double BULLET_SCORE = 20;
+    /**
+     * fire penaly
+     */
+    double FIRE_PENALTY = 1;
     /**
      * reverse penalty
      */
-    double REVERSE_PENALTY = 1;
+    double REVERSE_PENALTY = 2;
     /**
      * bullet count
      */
@@ -85,11 +89,20 @@ public interface Constants {
     /**
      * input layer size
      */
-    int INPUT_LAYER_SIZE = (AI_COUNT + PLAYER_COUNT) * 2;
+    int INPUT_LAYER_SIZE = AI_COUNT * 2;
     /**
      * output layer size
      */
     int OUTPUT_LAYER_SIZE = 5;
+    /**
+     * elite size
+     */
+    int ELITE_COUNT = 15;
+    /**
+     * weights cache filename
+     */
+    String CACHE_PATH = "weights.dat";
+
     /**
      * pane
      */

@@ -121,7 +121,7 @@ public abstract class Object implements Constants {
     /**
      * deactivate
      */
-    public void kill() {
+    protected void kill() {
         dead = true;
         // remove from window
         pane.getChildren().remove(imageView);

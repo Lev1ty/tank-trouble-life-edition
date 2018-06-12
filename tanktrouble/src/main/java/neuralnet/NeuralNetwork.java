@@ -31,7 +31,7 @@ public class NeuralNetwork {
     /**
      * release network reference
      */
-    private void releaseLock() {
+    private void unlock() {
         Layer.network = null;
     }
 
@@ -41,7 +41,7 @@ public class NeuralNetwork {
     public NeuralNetwork add(Layer layer) {
         lock();
         layer.add();
-        releaseLock();
+        unlock();
         return this;
     }
 
@@ -56,17 +56,29 @@ public class NeuralNetwork {
         for (Layer layer : network) {
             layer.propagateForward();
         }
-        releaseLock();
+        unlock();
         return ((OutputLayer) network.get(network.size() - 1)).getOutput();
     }
 
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(network.size()).append("\n");
         for (Layer layer : network) {
             stringBuilder.append(layer);
         }
         return stringBuilder.toString();
+    }
+
+    /**
+     * randomize layers weights
+     */
+    public void randomizeLayers() {
+        lock();
+        for (Layer layer : network) {
+            if (layer instanceof DotPlusLayer) {
+                ((DotPlusLayer) layer).setRandomWeightsBiases(-1, 1);
+            }
+        }
+        unlock();
     }
 }

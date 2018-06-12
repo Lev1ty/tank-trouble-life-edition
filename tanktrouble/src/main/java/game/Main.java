@@ -10,6 +10,8 @@ import javafx.scene.transform.Translate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.File;
+
 public class Main extends Application implements Constants {
     /**
      * player tanks
@@ -50,7 +52,7 @@ public class Main extends Application implements Constants {
     public void backend() {
         // initialize field
 //        addMudPuddles();
-        addPlayerTanks();
+//        addPlayerTanks();
         addAITanks();
 //        addBushes();
         // add listeners
@@ -105,7 +107,8 @@ public class Main extends Application implements Constants {
      * end game
      */
     public void endGame() {
-        AI.saveElite();
+        AI.writeElite();
+        Object.global.clear();
         pane.getChildren().clear();
     }
 
@@ -136,7 +139,12 @@ public class Main extends Application implements Constants {
      * add AI tanks
      */
     private void addAITanks() {
-        for (int i = 0; i < AI_COUNT; i++) {
+        int ai_count = AI_COUNT;
+        if (new File(CACHE_PATH).isFile()) {
+            ai_count -= ELITE_COUNT;
+            AI.makeElite(pane);
+        }
+        for (int i = 0; i < ai_count; i++) {
             new AI().setImageView(new ImageView(new Image("black_player.png")))
                     .setPane(pane).addImageViewToPane()
                     .setRotate(new Rotate()).addRotateToImageView()

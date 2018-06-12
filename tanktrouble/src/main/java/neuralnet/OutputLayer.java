@@ -1,5 +1,6 @@
 package neuralnet;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class OutputLayer extends Layer {
      */
     public static int argmax(List<Double> list) {
         int index = 0;
-        Double value = 0.0;
+        Double value = Double.MIN_VALUE;
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i) > value) {
                 value = list.get(i);
@@ -38,6 +39,11 @@ public class OutputLayer extends Layer {
         super.add();
         previous = network.get(network.size() - 2);
         previous.next = this;
+    }
+
+    @Override
+    public void readWeightsBiasesFromFile(File file) {
+        // do nothing
     }
 
     /**

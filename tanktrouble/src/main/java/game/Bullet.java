@@ -46,17 +46,21 @@ public class Bullet extends DynamicObject {
         // kill
         if (edgeToEdgeDistance(other) <= 0 && other instanceof Tank) {
             other.kill();
-            kill();
+            killPlayer();
             //add Sound
             snd.playTankDestroy();
         }
     }
 
     @Override
-    public void kill() {
+    protected void kill() {
         super.kill();
         // reload one bullet for owner
         owner.bullets--;
+    }
+
+    private void killPlayer() {
+        kill();
         // accumulate owner score
         owner.score += Constants.BULLET_SCORE;
     }
