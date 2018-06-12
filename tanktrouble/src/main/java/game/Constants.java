@@ -67,6 +67,10 @@ public interface Constants {
      */
     double BULLET_SCORE = 20;
     /**
+     * movement score
+     */
+    double MOVEMENT_SCORE = 1;
+    /**
      * fire penaly
      */
     double FIRE_PENALTY = 1;

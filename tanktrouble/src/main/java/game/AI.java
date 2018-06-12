@@ -76,9 +76,11 @@ public class AI extends Tank {
         switch (first) {
             case 0:
                 north = true;
+                score += MOVEMENT_SCORE;
                 break;
             case 1:
                 south = true;
+                score += MOVEMENT_SCORE;
                 break;
             case 2:
                 east = true;
@@ -95,9 +97,11 @@ public class AI extends Tank {
         switch (second) {
             case 0:
                 north = true;
+                score += MOVEMENT_SCORE;
                 break;
             case 1:
                 south = true;
+                score += MOVEMENT_SCORE;
                 break;
             case 2:
                 east = true;
