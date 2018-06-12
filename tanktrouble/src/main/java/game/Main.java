@@ -49,6 +49,7 @@ public class Main extends Application implements DynamicConstants {
         backend();
         // show window
         primaryStage.show();
+        /*
 //        Runnable r = new Runnable() {
 //            @Override
 //            public void run() {
@@ -64,7 +65,7 @@ public class Main extends Application implements DynamicConstants {
                 new Main().start(new Stage());
             });
         });
-        delay.play();
+        delay.play();*/
     }
 
     @Override
@@ -77,10 +78,10 @@ public class Main extends Application implements DynamicConstants {
      */
     public static void backend() {
         // initialize field
-//        addMudPuddles();
-//        addPlayerTanks();
+        addMudPuddles();
+        addPlayerTanks();
         addAITanks();
-//        addBushes();
+        addBushes();
         // add listeners
         addListeners();
         // start game
@@ -173,12 +174,12 @@ public class Main extends Application implements DynamicConstants {
      */
     public static void addAITanks() {
         int ai_count = AI_COUNT;
-        if (new File(CACHE_PATH).isFile()) {
-            ai_count -= ELITE_COUNT;
-            AI.makeElite(pane);
-        }
+       // if (new File(CACHE_PATH).isFile()) {
+       //     ai_count -= ELITE_COUNT;
+       //     AI.makeElite(pane);
+      //  }
         for (int i = 0; i < ai_count; i++) {
-            new AI().setImageView(new ImageView(new Image("black_player.png")))
+            new Laika().setImageView(new ImageView(new Image("black_player.png")))
                     .setPane(pane).addImageViewToPane()
                     .setRotate(new Rotate()).addRotateToImageView()
                     .setTranslate(new Translate()).addTranslateToImageView()

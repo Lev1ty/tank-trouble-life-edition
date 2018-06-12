@@ -45,7 +45,7 @@ public interface Constants {
     /**
      * movement multiplier
      */
-    double MOVEMENT_MULTIPLIER = 10;
+    double MOVEMENT_MULTIPLIER = 1;
     /**
      * bullet movement (pixel per frame)
      */
@@ -143,6 +143,11 @@ public interface Constants {
      */
 
     int epsilon = 10;
+
+    /**
+     * store a big number for easy minimums
+     */
+    double INF = 99999999.0;
 
     /**
      * training time
