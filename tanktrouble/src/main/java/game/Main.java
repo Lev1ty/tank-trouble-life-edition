@@ -33,6 +33,21 @@ public class Main extends Application implements Constants {
         primaryStage.setResizable(false);
         // apply scene to window
         primaryStage.setScene(scene);
+        // backend ready
+        backend();
+        // show window
+        primaryStage.show();
+    }
+
+    @Override
+    public void stop() {
+        endGame();
+    }
+
+    /**
+     * mechanics
+     */
+    public void backend() {
         // initialize field
 //        addMudPuddles();
         addPlayerTanks();
@@ -42,8 +57,6 @@ public class Main extends Application implements Constants {
         addListeners();
         // start game
         startGame();
-        // show window
-        primaryStage.show();
     }
 
     /**
@@ -86,6 +99,14 @@ public class Main extends Application implements Constants {
         timeline.getKeyFrames().add(keyFrame);
         // start animator
         timeline.play();
+    }
+
+    /**
+     * end game
+     */
+    public void endGame() {
+        AI.saveElite();
+        pane.getChildren().clear();
     }
 
     /**

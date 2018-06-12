@@ -69,4 +69,19 @@ public class DotPlusLayer extends Layer {
             previous.next = this;
         }
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder(super.toString());
+        for (List<Double[]> list : weights) {
+            for (Double[] list1 : list) {
+                for (Double d : list1) {
+                    stringBuilder.append(d).append(" ");
+                }
+                stringBuilder.append("\t");
+            }
+            stringBuilder.append("\n");
+        }
+        return stringBuilder.toString();
+    }
 }

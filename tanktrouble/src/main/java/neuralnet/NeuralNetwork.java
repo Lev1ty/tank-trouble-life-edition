@@ -59,4 +59,14 @@ public class NeuralNetwork {
         releaseLock();
         return ((OutputLayer) network.get(network.size() - 1)).getOutput();
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(network.size()).append("\n");
+        for (Layer layer : network) {
+            stringBuilder.append(layer);
+        }
+        return stringBuilder.toString();
+    }
 }

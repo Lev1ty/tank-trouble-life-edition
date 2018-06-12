@@ -2,9 +2,12 @@ package game;
 
 import neuralnet.*;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -90,8 +93,24 @@ public class AI extends Tank {
      * get elite
      */
     public static void saveElite() {
-        AI[] copy = global.toArray(new AI[global.size()]);
-        Arrays.sort(copy, (o1, o2) -> Double.compare(o2.score, o1.score));
-        List<AI> elite = new ArrayList<>(Arrays.asList(copy)).subList(0, 15);
+        List<AI> copy = new ArrayList<>();
+        for (Object object : global) {
+            if (object instanceof AI) {
+                copy.add((AI) object);
+            }
+        }
+        AI[] elite = copy.toArray(new AI[0]);
+        Arrays.sort(elite, (o1, o2) -> Double.compare(o2.score, o1.score));
+        try (FileWriter fw = new FileWriter("weights.dat", false);
+             BufferedWriter bw = new BufferedWriter(fw);
+             PrintWriter out = new PrintWriter(bw)) {
+            for (AI ai : Arrays.asList(elite).subList(0, 5)) {
+                System.out.println(ai.score);
+                out.print(ai.neuralNetwork);
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

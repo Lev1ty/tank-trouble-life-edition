@@ -45,7 +45,7 @@ public interface Constants {
     /**
      * movement multiplier
      */
-    double MOVEMENT_MULTIPLIER = 1;
+    double MOVEMENT_MULTIPLIER = 5;
     /**
      * bullet movement (pixel per frame)
      */
@@ -61,7 +61,7 @@ public interface Constants {
     /**
      * bullet duration (seconds)
      */
-    double BULLET_DURATION = 5;
+    double BULLET_DURATION = 5 / MOVEMENT_MULTIPLIER;
     /**
      * bullet score
      */
@@ -77,7 +77,7 @@ public interface Constants {
     /**
      * reload time (seconds)
      */
-    double RELOAD_TIME = .1;
+    double RELOAD_TIME = .1 / MOVEMENT_MULTIPLIER;
     /**
      * slow multiplier (increase to slow down)
      */

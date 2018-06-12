@@ -49,4 +49,15 @@ public abstract class Layer implements Constants {
     public void add() {
         network.add(this);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        if (this instanceof OutputLayer) {
+            stringBuilder.append(neurons).append("\n");
+        } else {
+            stringBuilder.append(next.neurons).append(" ").append(neurons).append("\n");
+        }
+        return stringBuilder.toString();
+    }
 }
