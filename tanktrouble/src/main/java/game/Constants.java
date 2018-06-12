@@ -45,7 +45,7 @@ public interface Constants {
     /**
      * movement multiplier
      */
-    double MOVEMENT_MULTIPLIER = 5;
+    double MOVEMENT_MULTIPLIER = 10;
     /**
      * bullet movement (pixel per frame)
      */
@@ -108,14 +108,6 @@ public interface Constants {
     String CACHE_PATH = "weights.dat";
 
     /**
-     * pane
-     */
-    Pane pane = new Pane();
-    /**
-     * scene
-     */
-    Scene scene = new Scene(pane, WIDTH, HEIGHT);
-    /**
      * random number generator
      */
     Random random = new Random();
@@ -151,6 +143,11 @@ public interface Constants {
      */
 
     int epsilon = 10;
+
+    /**
+     * training time
+     */
+    long TRAINING_TIME = 1;
 
     /**
      * random range

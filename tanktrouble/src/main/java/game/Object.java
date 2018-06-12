@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author adam
  */
-public abstract class Object implements Constants {
+public abstract class Object implements DynamicConstants {
     /**
      * global array
      */

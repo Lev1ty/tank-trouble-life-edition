@@ -1,8 +1,11 @@
 package game;
 
 import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.transform.Rotate;
@@ -11,12 +14,19 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.util.Observable;
+import java.util.Observer;
+import java.util.logging.Handler;
 
-public class Main extends Application implements Constants {
+import static game.Constants.WINDOW_TITLE;
+
+public class Main extends Application implements DynamicConstants {
     /**
      * player tanks
      */
-    private ObjectBuilder[] player;
+    private static ObjectBuilder[] player;
+
+    private static int count = 0;
 
     public static void main(String[] args) {
         launch(args);
@@ -39,6 +49,22 @@ public class Main extends Application implements Constants {
         backend();
         // show window
         primaryStage.show();
+//        Runnable r = new Runnable() {
+//            @Override
+//            public void run() {
+//                primaryStage
+//            }
+//        };
+//        Thread t = new Thread(r, "x");
+        PauseTransition delay = new PauseTransition(Duration.seconds(TRAINING_TIME));
+        delay.setOnFinished(event -> {
+            primaryStage.close();
+            endGame();
+            Platform.runLater(() -> {
+                new Main().start(new Stage());
+            });
+        });
+        delay.play();
     }
 
     @Override
@@ -49,7 +75,7 @@ public class Main extends Application implements Constants {
     /**
      * mechanics
      */
-    public void backend() {
+    public static void backend() {
         // initialize field
 //        addMudPuddles();
 //        addPlayerTanks();
@@ -62,9 +88,36 @@ public class Main extends Application implements Constants {
     }
 
     /**
+     * frame logic
+     */
+    public static void executeFrame() {
+        // dump buffer
+        for (Object object : Object.buffer) {
+            object.activate();
+        }
+        // clear buffer
+        Object.buffer.clear();
+        // actOn all objects with each other
+        for (Object object : Object.global) {
+            // object not dead
+            if (!object.dead) {
+                // self action
+                object.act();
+                for (Object object1 : Object.global) {
+                    // object1 not dead
+                    if (!object1.dead) {
+                        // interaction
+                        object.actOn(object1);
+                    }
+                }
+            }
+        }
+    }
+
+    /**
      * game main loop
      */
-    public void startGame() {
+    public static void startGame() {
         // initialize animation framework
         Timeline timeline = new Timeline();
         // infinite game loop
@@ -74,27 +127,7 @@ public class Main extends Application implements Constants {
                 // 120 Hz refresh rate
                 Duration.seconds(1 / REFRESH_RATE),
                 event -> {
-                    // dump buffer
-                    for (Object object : Object.buffer) {
-                        object.activate();
-                    }
-                    // clear buffer
-                    Object.buffer.clear();
-                    // actOn all objects with each other
-                    for (Object object : Object.global) {
-                        // object not dead
-                        if (!object.dead) {
-                            // self action
-                            object.act();
-                            for (Object object1 : Object.global) {
-                                // object1 not dead
-                                if (!object1.dead) {
-                                    // interaction
-                                    object.actOn(object1);
-                                }
-                            }
-                        }
-                    }
+                    executeFrame();
                 }
         );
         // apply game loop to animator
@@ -106,7 +139,7 @@ public class Main extends Application implements Constants {
     /**
      * end game
      */
-    public void endGame() {
+    public static void endGame() {
         AI.writeElite();
         Object.global.clear();
         pane.getChildren().clear();
@@ -115,7 +148,7 @@ public class Main extends Application implements Constants {
     /**
      * add player tanks
      */
-    private void addPlayerTanks() {
+    public static void addPlayerTanks() {
         player = new ObjectBuilder[]{
                 // player 1
                 new Player().setImageView(new ImageView(new Image("red_player.png")))
@@ -138,7 +171,7 @@ public class Main extends Application implements Constants {
     /**
      * add AI tanks
      */
-    private void addAITanks() {
+    public static void addAITanks() {
         int ai_count = AI_COUNT;
         if (new File(CACHE_PATH).isFile()) {
             ai_count -= ELITE_COUNT;
@@ -157,7 +190,7 @@ public class Main extends Application implements Constants {
     /**
      * add bushes
      */
-    private void addBushes() {
+    public static void addBushes() {
         for (int i = 0; i < BUSH_COUNT; i++) {
             new Bush().setImageView(new ImageView(new Image("bush.png")))
                     .setPane(pane).addImageViewToPane()
@@ -171,7 +204,7 @@ public class Main extends Application implements Constants {
     /**
      * add mud puddles
      */
-    private void addMudPuddles() {
+    public static void addMudPuddles() {
         for (int i = 0; i < MUD_COUNT; i++) {
             new Mud().setImageView(new ImageView(new Image("mud.png")))
                     .setPane(pane).addImageViewToPane()
@@ -185,7 +218,7 @@ public class Main extends Application implements Constants {
     /**
      * add listeners
      */
-    private void addListeners() {
+    public static void addListeners() {
         // key press
         scene.setOnKeyPressed(event -> {
             switch (event.getCode()) {

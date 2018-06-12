@@ -83,6 +83,9 @@ public class DotPlusLayer extends Layer {
             e.printStackTrace();
             return;
         }
+        if (!sc.hasNext()) {
+            return;
+        }
         for (int i = 0; i < next.neurons; i++) {
             weights.add(new ArrayList<>());
             for (int j = 0; j < neurons; j++) {

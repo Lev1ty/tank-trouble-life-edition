@@ -76,11 +76,9 @@ public class AI extends Tank {
         switch (first) {
             case 0:
                 north = true;
-                score += MOVEMENT_SCORE;
                 break;
             case 1:
                 south = true;
-                score += MOVEMENT_SCORE;
                 break;
             case 2:
                 east = true;
@@ -97,11 +95,9 @@ public class AI extends Tank {
         switch (second) {
             case 0:
                 north = true;
-                score += MOVEMENT_SCORE;
                 break;
             case 1:
                 south = true;
-                score += MOVEMENT_SCORE;
                 break;
             case 2:
                 east = true;
@@ -133,8 +129,8 @@ public class AI extends Tank {
             for (AI ai : Arrays.asList(elite).subList(0, ELITE_COUNT)) {
                 System.out.print(ai.score + " ");
                 out.print(ai.neuralNetwork);
-
             }
+            System.out.println();
         } catch (IOException e) {
             e.printStackTrace();
         }
