@@ -116,6 +116,8 @@ public abstract class Tank extends DynamicObject {
         if (west) {
             goEast();
         }
+        // score penalty
+        score -= REVERSE_PENALTY;
     }
 
     @Override

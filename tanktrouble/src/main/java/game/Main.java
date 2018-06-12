@@ -34,10 +34,10 @@ public class Main extends Application implements Constants {
         // apply scene to window
         primaryStage.setScene(scene);
         // initialize field
-        addMudPuddles();
+//        addMudPuddles();
         addPlayerTanks();
         addAITanks();
-        addBushes();
+//        addBushes();
         // add listeners
         addListeners();
         // start game

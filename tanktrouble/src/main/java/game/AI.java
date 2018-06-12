@@ -3,6 +3,8 @@ package game;
 import neuralnet.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -14,7 +16,7 @@ public class AI extends Tank {
     /**
      * neural neuralNetwork
      */
-    private NeuralNetwork neuralNetwork;
+    public NeuralNetwork neuralNetwork;
 
     /**
      * value constructor
@@ -29,10 +31,10 @@ public class AI extends Tank {
      */
     private void initializeNetwork() {
         neuralNetwork = new NeuralNetwork();
-        neuralNetwork.add(new InputLayer((AI_COUNT + PLAYER_COUNT) * 2))
-                .add(new DotPlusLayer((AI_COUNT + PLAYER_COUNT) * 2))
-                .add(new DotPlusLayer((int) Math.sqrt((AI_COUNT + PLAYER_COUNT) * 2)))
-                .add(new OutputLayer(5));
+        neuralNetwork.add(new InputLayer(INPUT_LAYER_SIZE))
+                .add(new DotPlusLayer(INPUT_LAYER_SIZE))
+                .add(new DotPlusLayer((int) Math.sqrt(INPUT_LAYER_SIZE)))
+                .add(new OutputLayer(OUTPUT_LAYER_SIZE));
         for (Layer layer : neuralNetwork.network) {
             if (layer instanceof DotPlusLayer) {
                 ((DotPlusLayer) layer).setRandomWeightsBiases(-1, 1);
@@ -45,10 +47,12 @@ public class AI extends Tank {
      */
     private List<Double> collectInput() {
         List<Double> input = new ArrayList<>();
+        input.add(translate.getX());
+        input.add(translate.getY());
         for (Object object : global) {
-            if (object instanceof Tank) {
-                input.add(object.translate.getX());
-                input.add(object.translate.getY());
+            if (object instanceof Tank && id != object.id) {
+                input.add(object.translate.getX() - translate.getX());
+                input.add(object.translate.getY() - translate.getY());
             }
         }
         return input;
@@ -80,5 +84,14 @@ public class AI extends Tank {
                 fire = true;
                 break;
         }
+    }
+
+    /**
+     * get elite
+     */
+    public static void saveElite() {
+        AI[] copy = global.toArray(new AI[global.size()]);
+        Arrays.sort(copy, (o1, o2) -> Double.compare(o2.score, o1.score));
+        List<AI> elite = new ArrayList<>(Arrays.asList(copy)).subList(0, 15);
     }
 }
