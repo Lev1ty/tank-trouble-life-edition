@@ -6,8 +6,11 @@ package game;
 
 public class Laika extends Tank {
 
+    private int stuckCount;
+
     public Laika() {
         super();
+        stuckCount = 0;
     }
 
     @Override
@@ -21,8 +24,27 @@ public class Laika extends Tank {
         west = false;
         fire = false;
         if (inTrouble()) {
-            this.north = true;
-//           this.goNorth();
+            north = true;
+
+            for (Object o : Object.global) {
+                if (o instanceof Bush && !o.dead) {
+                    if(this.edgeToEdgeDistance(o) <= 2 && stuckCount < 5){
+                        north = false;
+                        south = true;
+                        stuckCount++;
+                    }
+                    else if (this.edgeToEdgeDistance(o) <= 5 && stuckCount < 10) {
+                        north = false;
+                        east = true;
+                        //south = true;
+                        stuckCount++;
+                    }
+
+                }
+            }
+            if(north){//no longer stuck
+                stuckCount = 0;
+            }
         } else {
             fireTank();
         }
