@@ -141,7 +141,7 @@ public class Main extends Application implements DynamicConstants {
      * end game
      */
     public static void endGame() {
-        AI.writeElite();
+//        AI.writeElite();
         Object.global.clear();
         pane.getChildren().clear();
     }
