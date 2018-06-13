@@ -14,6 +14,16 @@ public class Laika extends Tank{
     @Override
     public void act(){
         super.act();
+       if(inTrouble()){
+           this.north = true;
+           this.goNorth();
+       }
+       else{
+           fireTank();
+       }
+    }
+
+    private void fireTank(){
         double distance = INF;
         double coordX = 0,coordY = 0;
         for(Object o : Object.global){
@@ -34,32 +44,48 @@ public class Laika extends Tank{
             fire = false;
         }
         else{
-            rotateTank(coordX,coordY);
-            fire = true;
+            if(rotateTank(coordX,coordY))
+                fire = true;
+            else
+                fire = false;
         }
     }
 
-    private void rotateTank(double coordX,double coordY){
-        double angle = 180*Math.atan(Math.abs((coordY - this.translate.getY())/(coordX - this.translate.getX())))/Math.PI;
+    private boolean rotateTank(double coordX,double coordY){
+        double angle = HALF_TURN*Math.atan(Math.abs((coordY - this.translate.getY())/(coordX - this.translate.getX())))/Math.PI;
 
         if(coordY < this.translate.getY() && coordX > this.translate.getX()){
-            angle = 360 - angle;
+            angle = FULL_TURN - angle;
         }
         else if(coordY < this.translate.getY() && coordX < this.translate.getX()){
-            angle = 180 + angle;
+            angle = HALF_TURN + angle;
         }
         else if(coordY > this.translate.getY() && coordX < this.translate.getX()){
-            angle = 180 - angle;
+            angle = HALF_TURN - angle;
         }
 
-        int cnt = 0;
-        double fireAngle = this.rotate.getAngle()%360.0;
-        while(Math.abs(angle - fireAngle) > (TURN_MULTIPLIER * TANK_MOVEMENT) && cnt < 200){
-            cnt++;
-            this.goEast();
-            fireAngle = this.rotate.getAngle()%360.0;
+        double fireAngle = this.rotate.getAngle()%FULL_TURN;
+        if(Math.abs(angle - fireAngle) > (TURN_MULTIPLIER * TANK_MOVEMENT)){
+            if(angle > fireAngle)
+                this.goEast();
+            else
+                this.goWest();
+            return false;
         }
+        else{
+            return true;
+        }
+    }
 
+    private boolean inTrouble(){
+        for(Object o: Object.global){
+            if(o instanceof Bullet && !o.dead && ((Bullet) o).owner.id != this.id){
+                if(Math.abs(o.translate.getX() - this.translate.getX()) < 50 ||  Math.abs(o.translate.getY() - this.translate.getY()) < 50) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 }
