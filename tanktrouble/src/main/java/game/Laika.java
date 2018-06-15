@@ -41,6 +41,27 @@ public class Laika extends Tank {
                     }
 
                 }
+                else if(o instanceof Tank && !o.dead && ((Tank)o).id != this.id){
+                    if(this.edgeToEdgeDistance(o) <= 2 && stuckCount < 5){
+                        north = false;
+                        south = true;
+                        stuckCount++;
+                    }
+                    else if (this.edgeToEdgeDistance(o) <= 5 && stuckCount < 10) {
+                        north = false;
+                        east = true;
+                        //south = true;
+                        stuckCount++;
+                    }
+                }
+            }
+            if(Math.abs(translate.getX()-WIDTH) < 3*epsilon || Math.abs(translate.getY()-HEIGHT) < 3*epsilon || Math.abs(translate.getY()) < 3*epsilon || Math.abs(translate.getX()) < 3*epsilon){
+                fire = true;
+                north = false;
+                south = false;
+                if(rotateTank(WIDTH/2,HEIGHT/2)){
+                    north = true;
+                }
             }
             if(north){//no longer stuck
                 stuckCount = 0;

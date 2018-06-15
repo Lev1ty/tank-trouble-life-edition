@@ -6,8 +6,14 @@ import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Translate;
 import javafx.stage.Stage;
@@ -26,7 +32,10 @@ public class Main extends Application implements DynamicConstants {
      */
     private static ObjectBuilder[] player;
 
-    private static int count = 0;
+    /**
+     *window
+     */
+    static Stage window;
 
     public static void main(String[] args) {
         launch(args);
@@ -39,16 +48,19 @@ public class Main extends Application implements DynamicConstants {
      */
     @Override
     public void start(Stage primaryStage) {
+        window = primaryStage;
         // set window title
-        primaryStage.setTitle(WINDOW_TITLE);
+        window.setTitle(WINDOW_TITLE);
         // disallow resizing window
-        primaryStage.setResizable(false);
-        // apply scene to window
-        primaryStage.setScene(scene);
+        window.setResizable(false);
+
+
+        runMenu();
+
         // backend ready
-        backend();
+
         // show window
-        primaryStage.show();
+        window.show();
         /*
 //        Runnable r = new Runnable() {
 //            @Override
@@ -91,7 +103,10 @@ public class Main extends Application implements DynamicConstants {
     /**
      * frame logic
      */
-    public static void executeFrame() {
+    public static void executeFrame(Timeline t) {
+        //stores number of tanks alive
+        int numAlive = 0;
+        boolean whoWon = false;
         // dump buffer
         for (Object object : Object.buffer) {
             object.activate();
@@ -102,6 +117,14 @@ public class Main extends Application implements DynamicConstants {
         for (Object object : Object.global) {
             // object not dead
             if (!object.dead) {
+                //update numAlive
+                if(object instanceof Tank)
+                    numAlive++;
+                if(numAlive == 1){
+                    if(object instanceof Player)
+                        whoWon = true;
+                }
+
                 // self action
                 object.act();
                 for (Object object1 : Object.global) {
@@ -112,6 +135,21 @@ public class Main extends Application implements DynamicConstants {
                     }
                 }
             }
+        }
+        if(numAlive == 0){
+            t.stop();
+            AlertBox.display("No one has survived.");
+            endGame();
+        }
+        else if(numAlive == 1 && whoWon){
+            t.stop();
+            AlertBox.display("The user has won!");
+            endGame();
+        }
+        else if(numAlive == 1){
+            t.stop();
+            AlertBox.display("The computer has won!");
+            endGame();
         }
     }
 
@@ -128,7 +166,7 @@ public class Main extends Application implements DynamicConstants {
                 // 120 Hz refresh rate
                 Duration.seconds(1 / REFRESH_RATE),
                 event -> {
-                    executeFrame();
+                    executeFrame(timeline);
                 }
         );
         // apply game loop to animator
@@ -284,5 +322,28 @@ public class Main extends Application implements DynamicConstants {
                     break;
             }
         });
+    }
+    /**
+     * menu
+     */
+    public static void runMenu(){
+        Label title = new Label("TANK TROUBLE", new ImageView(new Image("title.jpg")));
+        title.setFont(Font.font("Verdana", FontWeight.BOLD,50));
+        title.setTranslateX(50);
+        title.setTranslateY(-175);
+
+        Button startButton = new Button("PLAY");
+        startButton.setLayoutX(100);
+        startButton.setLayoutY(100);
+        startButton.setOnAction(new EventHandler<ActionEvent>(){
+
+            public void handle(ActionEvent e){
+                backend();
+                window.setScene(scene);// apply scene to window
+            }
+        }
+        );
+        menuPane.getChildren().addAll(title, startButton);
+        window.setScene(menu);
     }
 }
