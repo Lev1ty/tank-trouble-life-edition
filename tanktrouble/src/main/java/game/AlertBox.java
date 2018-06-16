@@ -10,6 +10,10 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * class to create a separate window when game ends
+ */
+
 public class AlertBox {
     public static void display(String message){
         Stage window = new Stage();

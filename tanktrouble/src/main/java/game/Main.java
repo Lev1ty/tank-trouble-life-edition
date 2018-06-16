@@ -35,7 +35,12 @@ public class Main extends Application implements DynamicConstants {
     /**
      *window
      */
-    static Stage window;
+    private static Stage window;
+
+    /**
+     *screen  object
+     */
+    private static Screens s;
 
     public static void main(String[] args) {
         launch(args);
@@ -48,16 +53,19 @@ public class Main extends Application implements DynamicConstants {
      */
     @Override
     public void start(Stage primaryStage) {
+        //initialize screens variable
+        s = new Screens();
+        //equate variables
         window = primaryStage;
         // set window title
         window.setTitle(WINDOW_TITLE);
+        //create icon
+        window.getIcons().add(new Image(("icon.png")));
         // disallow resizing window
         window.setResizable(false);
 
 
         runMenu();
-
-        // backend ready
 
         // show window
         window.show();
@@ -88,10 +96,10 @@ public class Main extends Application implements DynamicConstants {
     /**
      * mechanics
      */
-    public static void backend() {
+    public static void backend(int numPlayers) {
         // initialize field
         addMudPuddles();
-        addPlayerTanks();
+        addPlayerTanks(numPlayers);
         addAITanks();
         addBushes();
         // add listeners
@@ -187,7 +195,7 @@ public class Main extends Application implements DynamicConstants {
     /**
      * add player tanks
      */
-    public static void addPlayerTanks() {
+    public static void addPlayerTanks(int numPlayers) {
         player = new ObjectBuilder[]{
                 // player 1
                 new Player().setImageView(new ImageView(new Image("red_player.png")))
@@ -323,27 +331,12 @@ public class Main extends Application implements DynamicConstants {
             }
         });
     }
+
     /**
-     * menu
+     * menu method
      */
     public static void runMenu(){
-        Label title = new Label("TANK TROUBLE", new ImageView(new Image("title.jpg")));
-        title.setFont(Font.font("Verdana", FontWeight.BOLD,50));
-        title.setTranslateX(50);
-        title.setTranslateY(-175);
-
-        Button startButton = new Button("PLAY");
-        startButton.setLayoutX(100);
-        startButton.setLayoutY(100);
-        startButton.setOnAction(new EventHandler<ActionEvent>(){
-
-            public void handle(ActionEvent e){
-                backend();
-                window.setScene(scene);// apply scene to window
-            }
-        }
-        );
-        menuPane.getChildren().addAll(title, startButton);
-        window.setScene(menu);
+        s.runMenu(window);
     }
+
 }
