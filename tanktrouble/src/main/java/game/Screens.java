@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.web.WebEngine;
@@ -22,9 +23,8 @@ public class Screens implements DynamicConstants{
      * menu
      */
     public void runMenu(Stage window){
-        Label title = new Label("TANK TROUBLE");
-        title.setFont(Font.font("Verdana", FontWeight.BOLD,50));
-        title.setLayoutX(570);
+        Label title = new Label("", new ImageView(new Image("title.png")));
+        title.setLayoutX(500);
         title.setLayoutY(300);
 
         Label background1 = new Label("",new ImageView(new Image("background_1.png")));
@@ -104,13 +104,29 @@ public class Screens implements DynamicConstants{
      */
     public void runPlayerSelect(Stage window){
         Label title = new Label("SELECT THE PLAYER COUNT");
-        Button one = new Button("One");
-        Button two = new Button("Two");
-        Button three = new Button("Three");
+        title.setFont(Font.font("Verdana", FontWeight.BOLD,50));
+        title.setTextFill(Color.web("#A52A2A"));
+
+        Button one = new Button("");
+        ImageView oneImage = new ImageView(new Image("singleplayer.png"));
+        oneImage.setFitHeight(320);
+        oneImage.setFitWidth(175);
+        one.setGraphic(oneImage);
+        Button two = new Button("");
+        ImageView twoImage = new ImageView(new Image("twoplayer.png"));
+        twoImage.setFitHeight(320);
+        twoImage.setFitWidth(350);
+        two.setGraphic(twoImage);
+        Button three = new Button("");
+        ImageView threeImage = new ImageView(new Image("threeplayer.png"));
+        threeImage.setFitHeight(320);
+        threeImage.setFitWidth(525);
+        three.setGraphic(threeImage);
 
         StackPane.setAlignment(title, Pos.TOP_CENTER);
         StackPane.setAlignment(one, Pos.CENTER_LEFT);
-        StackPane.setAlignment(two, Pos.CENTER);
+        two.setTranslateX(-150);
+        two.setTranslateY(0);
         StackPane.setAlignment(three, Pos.CENTER_RIGHT);
 
         EventHandler eventHandler = new EventHandler<ActionEvent>(){
