@@ -21,7 +21,7 @@ public interface Constants {
     /**
      * number of AI tanks
      */
-    int AI_COUNT = 20;
+    int AI_COUNT = 12;
     /**
      * number of player tanks
      */
@@ -33,7 +33,7 @@ public interface Constants {
     /**
      * number of mud puddles
      */
-    int MUD_COUNT = 7;
+    int MUD_COUNT = 6;
     /**
      * screen refresh multiplier
      */

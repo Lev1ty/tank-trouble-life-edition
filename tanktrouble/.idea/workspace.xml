@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1cf6c519-32d1-42fe-b07e-342ce2f1dfd9" name="Default" comment="start train" />
+    <list default="true" id="1cf6c519-32d1-42fe-b07e-342ce2f1dfd9" name="Default" comment="start train">
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Screens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Screens.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Instructions.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Instructions.html" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,14 +25,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/game/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3638">
-              <caret line="218" column="39" selection-start-line="218" selection-start-column="39" selection-end-line="218" selection-end-column="39" />
+            <state relative-caret-position="-64">
+              <caret line="363" column="13" lean-forward="true" selection-start-line="363" selection-start-column="13" selection-end-line="363" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1218#1219#0" expanded="true" />
+                <element signature="e#1246#1247#0" expanded="true" />
+                <element signature="e#2374#2375#0" expanded="true" />
+                <element signature="e#2399#2400#0" expanded="true" />
+                <element signature="e#12220#12221#0" expanded="true" />
+                <element signature="e#12253#12254#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AlertBox.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/game/AlertBox.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="103">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Screens.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/game/Screens.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="56" column="40" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Instructions.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/Instructions.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="395">
+              <caret line="31" column="83" selection-start-line="31" selection-start-column="83" selection-end-line="31" selection-end-column="83" />
             </state>
           </provider>
         </entry>
@@ -36,7 +73,7 @@
       <file leaf-file-name="Mud.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/game/Mud.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="86">
               <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
             </state>
           </provider>
@@ -45,8 +82,8 @@
       <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/game/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1819">
-              <caret line="110" column="30" selection-start-line="110" selection-start-column="30" selection-end-line="110" selection-end-column="30" />
+            <state relative-caret-position="238">
+              <caret line="32" column="7" lean-forward="true" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -65,15 +102,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1258">
               <caret line="74" column="19" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EventHandler.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/javafx-src.zip!/javafx/event/EventHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="41" column="6" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -139,9 +167,11 @@
         <option value="$PROJECT_DIR$/src/main/java/neuralnet/DotPlusLayer.java" />
         <option value="$PROJECT_DIR$/src/main/java/neuralnet/Train.java" />
         <option value="$PROJECT_DIR$/src/main/java/game/AI.java" />
-        <option value="$PROJECT_DIR$/src/main/java/game/Constants.java" />
         <option value="$PROJECT_DIR$/src/main/java/game/Mouse.java" />
         <option value="$PROJECT_DIR$/src/main/java/game/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/game/Screens.java" />
+        <option value="$PROJECT_DIR$/src/main/java/game/Constants.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/Instructions.html" />
       </list>
     </option>
   </component>
@@ -152,7 +182,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="35" />
     <option name="y" value="-20" />
     <option name="width" value="1750" />
@@ -164,6 +194,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -209,7 +240,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -220,6 +250,156 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/misc.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/game/Bullet.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/game/Constants.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/game/DynamicConstants.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/game/Main.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/mud.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/game/Bullet.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/game/Constants.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/game/DynamicConstants.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/game/Main$1.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/game/Main.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/weights.dat</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/game/AlertBox.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/game/Laika.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/game/Screens.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/Instructions.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/background_1.PNG</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/background_2.PNG</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/icon.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/singleplayer.PNG</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/threeplayer.PNG</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/title.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/twoplayer.PNG</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/Instructions.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/background_1.PNG</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/background_2.PNG</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/game/AlertBox$1.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/game/AlertBox.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/game/Laika.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/game/Screens$1.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/game/Screens$2.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/game/Screens$3.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/game/Screens.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/icon.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/singleplayer.PNG</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/threeplayer.PNG</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/title.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/twoplayer.PNG</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/uiDesigner.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/mud.png</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -332,6 +512,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="8" />
       <window_info anchor="bottom" id="TODO" order="12" />
@@ -342,7 +523,7 @@
       <window_info anchor="bottom" id="Event Log" order="17" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="12" />
       <window_info anchor="bottom" id="Version Control" order="16" weight="0.32814527" />
-      <window_info anchor="bottom" id="Run" order="5" weight="0.030206677" />
+      <window_info active="true" anchor="bottom" id="Run" order="5" visible="true" weight="0.030206677" />
       <window_info anchor="bottom" id="Terminal" order="15" />
       <window_info id="Capture Tool" order="11" />
       <window_info id="Designer" order="8" />
@@ -354,13 +535,33 @@
       <window_info anchor="right" id="Theme Preview" order="10" />
       <window_info id="Favorites" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="6" weight="0.3994812" />
+      <window_info anchor="right" id="Palette" order="8" />
+      <window_info id="Designer" order="8" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="9" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.3294423" />
+      <window_info anchor="bottom" id="Terminal" order="15" />
+      <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="12" />
+      <window_info id="Favorites" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="16" weight="0.32814527" />
+      <window_info anchor="bottom" id="Run" order="5" weight="0.030206677" />
+      <window_info id="Image Layers" order="10" />
+      <window_info id="Capture Tool" order="11" />
+      <window_info id="UI Designer" order="12" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.3994812" />
+      <window_info anchor="right" id="Theme Preview" order="10" />
+      <window_info id="Learn" order="12" />
+      <window_info anchor="right" id="Palette&#9;" order="11" />
       <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="17" side_tool="true" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3294423" />
+      <window_info anchor="right" id="Maven Projects" order="12" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.14787701" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -404,10 +605,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ApplicationParameters.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bucket.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/Tank.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/Object.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Bush.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/DynamicObject.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/AI.java" />
@@ -533,13 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/game/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1819">
-          <caret line="110" column="30" selection-start-line="110" selection-start-column="30" selection-end-line="110" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/game/ObjectBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -551,13 +741,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2363">
           <caret line="142" column="36" selection-start-line="142" selection-start-column="36" selection-end-line="142" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/game/Mud.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -576,13 +759,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/green_player.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/game/AlertBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/game/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="32" column="7" lean-forward="true" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/game/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3638">
-          <caret line="218" column="39" selection-start-line="218" selection-start-column="39" selection-end-line="218" selection-end-column="39" />
+        <state relative-caret-position="-64">
+          <caret line="363" column="13" lean-forward="true" selection-start-line="363" selection-start-column="13" selection-end-line="363" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1218#1219#0" expanded="true" />
+            <element signature="e#1246#1247#0" expanded="true" />
+            <element signature="e#2374#2375#0" expanded="true" />
+            <element signature="e#2399#2400#0" expanded="true" />
+            <element signature="e#12220#12221#0" expanded="true" />
+            <element signature="e#12253#12254#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/game/Mud.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/game/Screens.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="56" column="40" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Instructions.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="31" column="83" selection-start-line="31" selection-start-column="83" selection-end-line="31" selection-end-column="83" />
         </state>
       </provider>
     </entry>

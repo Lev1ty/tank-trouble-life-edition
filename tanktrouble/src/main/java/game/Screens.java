@@ -39,13 +39,23 @@ public class Screens implements DynamicConstants{
         background3.setLayoutX(1200);
         background3.setLayoutY(100);
 
-        Button startButton = new Button("PLAY");
-        startButton.setLayoutX(750);
+        Image playButton = new Image("play.png");
+        ImageView play = new ImageView(playButton);
+        play.setFitHeight(80);
+        play.setFitWidth(180);
+
+        Image insButton = new Image ("instructions.jpg");
+        ImageView ins = new ImageView(insButton);
+        ins.setFitHeight(80);
+        ins.setFitWidth(180);
+
+        Button startButton = new Button("", play);
+        startButton.setLayoutX(700);
         startButton.setLayoutY(500);
 
-        Button instructionsButton = new Button("INSTRUCTIONS");
-        instructionsButton.setLayoutX(720);
-        instructionsButton.setLayoutY(560);
+        Button instructionsButton = new Button("", ins);
+        instructionsButton.setLayoutX(700);
+        instructionsButton.setLayoutY(650);
 
         final EventHandler eventHandlers = new EventHandler<ActionEvent>(){
 
