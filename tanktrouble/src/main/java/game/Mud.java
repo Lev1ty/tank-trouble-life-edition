@@ -2,8 +2,6 @@ package game;
 
 /**
  * mud
- *
- * @author adam
  */
 public class Mud extends ObjectBuilder {
     @Override

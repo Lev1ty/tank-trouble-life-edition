@@ -7,8 +7,6 @@ import javafx.scene.transform.Translate;
 
 /**
  * tank
- *
- * @author adam
  */
 public abstract class Tank extends DynamicObject {
     /**

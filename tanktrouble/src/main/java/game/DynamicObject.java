@@ -2,8 +2,6 @@ package game;
 
 /**
  * dynamic object
- *
- * @author adam
  */
 public abstract class DynamicObject extends ObjectBuilder {
     /**

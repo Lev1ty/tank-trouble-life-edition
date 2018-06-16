@@ -13,9 +13,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * computer tank
- *
- * @author adam
+ * original computer tank
+ * reliant on neural network
  */
 public class AI extends Tank {
     /**

@@ -16,14 +16,18 @@ import javafx.stage.Stage;
 
 public class AlertBox {
     public static void display(String message){
-        Stage window = new Stage();
+        Stage window = new Stage();//create new stage
         window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle("Game has finished...");
+        window.setTitle("Game has finished...");//stage title
+        //stage properties
         window.setMinWidth(500);
         window.setMinHeight(300);
 
+        //crete label to display message
         Label label = new Label(message);
+        //create return button to return to menu
         Button returnButton = new Button("Return to Menu");
+        //add functionality
         returnButton.setOnAction(new EventHandler<ActionEvent>(){
             public void handle(ActionEvent e){
                 window.close();
@@ -32,12 +36,13 @@ public class AlertBox {
         }
         );
 
+        //create layout to place components
         VBox layout = new VBox(10);
-        layout.getChildren().addAll(label,returnButton);
+        layout.getChildren().addAll(label,returnButton);//add components
         layout.setAlignment(Pos.CENTER);
-
+        //set up scene
         Scene popUp = new Scene(layout);
-        window.setScene(popUp);
-        window.show();
+        window.setScene(popUp);//add to stage
+        window.show();//show window
     }
 }

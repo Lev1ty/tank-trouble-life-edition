@@ -2,8 +2,6 @@ package game;
 
 /**
  * bush
- *
- * @author adam
  */
 public class Bush extends ObjectBuilder {
     @Override

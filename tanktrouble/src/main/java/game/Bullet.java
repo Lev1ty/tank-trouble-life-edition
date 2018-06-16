@@ -2,8 +2,6 @@ package game;
 
 /**
  * bullet
- *
- * @author adam
  */
 public class Bullet extends DynamicObject {
     /**
@@ -66,12 +64,14 @@ public class Bullet extends DynamicObject {
     }
 
     /**
-     * bounce
+     * method to describe how bullets bounce off walls
      */
     @Override
     protected void reverse() {
         // hard code for angle of reflection of four walls
-        // evaluate four corners
+        // use newton's law of reflection to evaluate reflection off of walls
+        // case work necessary to invert angles
+        // evaluate four corners and reflect accordingly
         if (Math.abs(this.translate.getX()) < epsilon && Math.abs(this.translate.getY()) < epsilon) {
             this.rotate.setAngle(SOUTH_EAST);
         } else if (Math.abs(this.translate.getX()) < epsilon && Math.abs(this.translate.getY() - HEIGHT) < epsilon) {
@@ -80,32 +80,32 @@ public class Bullet extends DynamicObject {
             this.rotate.setAngle(NORTH_WEST);
         } else if (Math.abs(this.translate.getX() - WIDTH) < epsilon && Math.abs(this.translate.getY()) < epsilon) {
             this.rotate.setAngle(SOUTH_WEST);
-        } else if (Math.abs(this.translate.getX() - WIDTH) < epsilon) {
+        } else if (Math.abs(this.translate.getX() - WIDTH) < epsilon) {//if bullet hits right wall
             if (this.rotate.getAngle() > THREE_QUART_TURN && this.rotate.getAngle() < FULL_TURN) {
                 this.rotate.setAngle(THREE_HALF_TURN - this.rotate.getAngle());
             } else {
                 this.rotate.setAngle(HALF_TURN - this.rotate.getAngle());
             }
-        } else if (Math.abs(this.translate.getX()) < epsilon) {
+        } else if (Math.abs(this.translate.getX()) < epsilon) {//if bullet hits left wall
             if (this.rotate.getAngle() > QUART_TURN && this.rotate.getAngle() < HALF_TURN) {
                 this.rotate.setAngle(HALF_TURN - this.rotate.getAngle());
             } else {
                 this.rotate.setAngle(THREE_HALF_TURN - this.rotate.getAngle());
             }
-        } else if (Math.abs(this.translate.getY()) < epsilon) {
+        } else if (Math.abs(this.translate.getY()) < epsilon) {//if bullet hits top wall
             if (this.rotate.getAngle() > HALF_TURN && this.rotate.getAngle() < THREE_QUART_TURN) {
                 this.rotate.setAngle(FULL_TURN - this.rotate.getAngle());
             } else {
                 this.rotate.setAngle(FULL_TURN - this.rotate.getAngle());
             }
-        } else if (Math.abs(this.translate.getY() - HEIGHT) < epsilon) {
+        } else if (Math.abs(this.translate.getY() - HEIGHT) < epsilon) {//if bullet hits bottom wall
             if (this.rotate.getAngle() > HALF_TURN && this.rotate.getAngle() < THREE_QUART_TURN) {
                 this.rotate.setAngle(FULL_TURN - this.rotate.getAngle());
             } else {
                 this.rotate.setAngle(FULL_TURN - this.rotate.getAngle());
             }
-        } else {
-            this.rotate.setAngle(this.rotate.getAngle() + QUART_TURN);
+        } else {//if hits undefined area
+            this.rotate.setAngle(this.rotate.getAngle() + QUART_TURN);//rotate bullet by 90 degrees
         }
     }
 
@@ -123,11 +123,11 @@ public class Bullet extends DynamicObject {
 
     @Override
     protected void goEast() {
-        rotate.setAngle(rotate.getAngle() + movementMultiplier * TURN_MULTIPLIER * BULLET_MOVEMENT);
+        rotate.setAngle(rotate.getAngle() + movementMultiplier * TURN_MULTIPLIER * BULLET_MOVEMENT);//increase angle
     }
 
     @Override
     protected void goWest() {
-        rotate.setAngle(rotate.getAngle() - movementMultiplier * TURN_MULTIPLIER * BULLET_MOVEMENT);
+        rotate.setAngle(rotate.getAngle() - movementMultiplier * TURN_MULTIPLIER * BULLET_MOVEMENT);//decrease angle
     }
 }
