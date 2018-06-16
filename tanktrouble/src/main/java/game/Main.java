@@ -6,12 +6,16 @@ import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
+import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Translate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import java.util.*;
+
 
 import java.io.File;
 import java.util.Observable;
@@ -56,7 +60,7 @@ public class Main extends Application implements DynamicConstants {
 //            }
 //        };
 //        Thread t = new Thread(r, "x");
-        PauseTransition delay = new PauseTransition(Duration.seconds(TRAINING_TIME));
+        /*PauseTransition delay = new PauseTransition(Duration.seconds(TRAINING_TIME));
         delay.setOnFinished(event -> {
             primaryStage.close();
             endGame();
@@ -64,7 +68,7 @@ public class Main extends Application implements DynamicConstants {
                 new Main().start(new Stage());
             });
         });
-        delay.play();
+        delay.play();*/
     }
 
     @Override
@@ -77,10 +81,10 @@ public class Main extends Application implements DynamicConstants {
      */
     public static void backend() {
         // initialize field
-//        addMudPuddles();
-//        addPlayerTanks();
+        addMudPuddles();
+        addPlayerTanks();
         addAITanks();
-//        addBushes();
+        addBushes();
         // add listeners
         addListeners();
         // start game
@@ -117,6 +121,7 @@ public class Main extends Application implements DynamicConstants {
     /**
      * game main loop
      */
+
     public static void startGame() {
         // initialize animation framework
         Timeline timeline = new Timeline();
@@ -161,6 +166,12 @@ public class Main extends Application implements DynamicConstants {
                         .setPane(pane).addImageViewToPane()
                         .setRotate(new Rotate()).addRotateToImageView()
                         .setTranslate(new Translate()).addTranslateToImageView()
+                        .setTranslateToRandomNonOverlappingPosition(),
+                // player 3
+                new Player().setImageView(new ImageView(new Image("blue_player.png")))
+                        .setPane(pane).addImageViewToPane()
+                        .setRotate(new Rotate()).addRotateToImageView()
+                        .setTranslate(new Translate()).addTranslateToImageView()
                         .setTranslateToRandomNonOverlappingPosition()
         };
         for (Object object : player) {
@@ -173,10 +184,10 @@ public class Main extends Application implements DynamicConstants {
      */
     public static void addAITanks() {
         int ai_count = AI_COUNT;
-        if (new File(CACHE_PATH).isFile()) {
+        /*if (new File(CACHE_PATH).isFile()) {
             ai_count -= ELITE_COUNT;
             AI.makeElite(pane);
-        }
+        }*/
         for (int i = 0; i < ai_count; i++) {
             new AI().setImageView(new ImageView(new Image("black_player.png")))
                     .setPane(pane).addImageViewToPane()
@@ -191,7 +202,7 @@ public class Main extends Application implements DynamicConstants {
      * add bushes
      */
     public static void addBushes() {
-        for (int i = 0; i < BUSH_COUNT; i++) {
+        for (int i = 0; i < BUSH_COUNT-5; i++) {
             new Bush().setImageView(new ImageView(new Image("bush.png")))
                     .setPane(pane).addImageViewToPane()
                     .setRotate(new Rotate()).addRotateToImageView()
@@ -205,8 +216,8 @@ public class Main extends Application implements DynamicConstants {
      * add mud puddles
      */
     public static void addMudPuddles() {
-        for (int i = 0; i < MUD_COUNT; i++) {
-            new Mud().setImageView(new ImageView(new Image("mud.png")))
+        for (int i = 0; i < MUD_COUNT-3; i++) {
+            new Mud().setImageView(new ImageView(new Image("sand.png")))
                     .setPane(pane).addImageViewToPane()
                     .setRotate(new Rotate()).addRotateToImageView()
                     .setTranslate(new Translate()).addTranslateToImageView()
@@ -283,5 +294,41 @@ public class Main extends Application implements DynamicConstants {
                     break;
             }
         });
+
+        scene.setOnMousePressed(event-> {
+
+            if (Math.abs( (180/Math.PI) * Math.atan( (event.getY()-((Tank)player[2]).translate.getY())/(event.getX()-((Tank)player[2]).translate.getX()) )%360 - (((Tank)player[2]).rotate.getAngle())%360) < 10) {
+                ((Tank)player[2]).east = false;
+                ((Tank)player[2]).west = false;
+            }
+            else if (Math.abs( (180/Math.PI) * Math.atan( (event.getY()-((Tank)player[2]).translate.getY())/(event.getX()-((Tank)player[2]).translate.getX()) )%360 - (((Tank)player[2]).rotate.getAngle())%360) > 180) {
+                ((Tank)player[2]).east = false;
+                ((Tank)player[2]).west = true;
+            }
+
+            else if (Math.abs( (180/Math.PI) * Math.atan( (event.getY()-((Tank)player[2]).translate.getY())/(event.getX()-((Tank)player[2]).translate.getX()) )%360 - (((Tank)player[2]).rotate.getAngle())%360) < 180) {
+                ((Tank)player[2]).west = false;
+                ((Tank)player[2]).east = true;
+            }
+
+            if (event.getX() - ((Tank)player[2]).translate.getX() <= 3 && event.getY() - ((Tank)player[2]).translate.getY() <= 3) {
+                ((Tank)player[2]).north = false;
+            }
+            else {
+                ((Tank)player[2]).north = true;
+            }
+        });
+
+        scene.setOnMouseReleased(
+                event -> {
+                    ((Tank)player[2]).north = false;
+                    ((Tank)player[2]).east = false;
+                    ((Tank)player[2]).west = false;
+                });
+
+        scene.setOnScroll( event -> {
+            ((Tank)player[2]).fire = true;
+        });
+
     }
 }

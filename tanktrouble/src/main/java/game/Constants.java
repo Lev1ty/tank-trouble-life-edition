@@ -45,7 +45,7 @@ public interface Constants {
     /**
      * movement multiplier
      */
-    double MOVEMENT_MULTIPLIER = 10;
+    double MOVEMENT_MULTIPLIER = 1;
     /**
      * bullet movement (pixel per frame)
      */
