@@ -6,16 +6,20 @@ import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Translate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.util.*;
-
+import javafx.scene.input.MouseEvent;
 
 import java.io.File;
 import java.util.Observable;
@@ -30,6 +34,16 @@ public class Main extends Application implements DynamicConstants {
      */
     private static ObjectBuilder[] player;
 
+    /**
+     *window
+     */
+    private static Stage window;
+
+    /**
+     *screen  object
+     */
+    private static Screens s;
+
     private static int count = 0;
 
     public static void main(String[] args) {
@@ -43,16 +57,23 @@ public class Main extends Application implements DynamicConstants {
      */
     @Override
     public void start(Stage primaryStage) {
+        //initialize screens variable
+        s = new Screens();
+        //equate variables
+        window = primaryStage;
         // set window title
-        primaryStage.setTitle(WINDOW_TITLE);
+        window.setTitle(WINDOW_TITLE);
+        //create icon
+        window.getIcons().add(new Image(("icon.png")));
         // disallow resizing window
-        primaryStage.setResizable(false);
-        // apply scene to window
-        primaryStage.setScene(scene);
-        // backend ready
-        backend();
+        window.setResizable(false);
+
+
+        runMenu();
+
         // show window
-        primaryStage.show();
+        window.show();
+        /*
 //        Runnable r = new Runnable() {
 //            @Override
 //            public void run() {
@@ -60,7 +81,7 @@ public class Main extends Application implements DynamicConstants {
 //            }
 //        };
 //        Thread t = new Thread(r, "x");
-        /*PauseTransition delay = new PauseTransition(Duration.seconds(TRAINING_TIME));
+        PauseTransition delay = new PauseTransition(Duration.seconds(TRAINING_TIME));
         delay.setOnFinished(event -> {
             primaryStage.close();
             endGame();
@@ -79,10 +100,10 @@ public class Main extends Application implements DynamicConstants {
     /**
      * mechanics
      */
-    public static void backend() {
+    public static void backend(int numPlayers) {
         // initialize field
         addMudPuddles();
-        addPlayerTanks();
+        addPlayerTanks(numPlayers);
         addAITanks();
         addBushes();
         // add listeners
@@ -94,7 +115,10 @@ public class Main extends Application implements DynamicConstants {
     /**
      * frame logic
      */
-    public static void executeFrame() {
+    public static void executeFrame(Timeline t) {
+        //stores number of tanks alive
+        int numAlive = 0;
+        boolean whoWon = false;
         // dump buffer
         for (Object object : Object.buffer) {
             object.activate();
@@ -105,6 +129,14 @@ public class Main extends Application implements DynamicConstants {
         for (Object object : Object.global) {
             // object not dead
             if (!object.dead) {
+                //update numAlive
+                if(object instanceof Tank)
+                    numAlive++;
+                if(numAlive == 1){
+                    if(object instanceof Player)
+                        whoWon = true;
+                }
+
                 // self action
                 object.act();
                 for (Object object1 : Object.global) {
@@ -116,12 +148,26 @@ public class Main extends Application implements DynamicConstants {
                 }
             }
         }
+        if(numAlive == 0){
+            t.stop();
+            AlertBox.display("No one has survived.");
+            endGame();
+        }
+        else if(numAlive == 1 && whoWon){
+            t.stop();
+            AlertBox.display("The user has won!");
+            endGame();
+        }
+        else if(numAlive == 1){
+            t.stop();
+            AlertBox.display("The computer has won!");
+            endGame();
+        }
     }
 
     /**
      * game main loop
      */
-
     public static void startGame() {
         // initialize animation framework
         Timeline timeline = new Timeline();
@@ -132,7 +178,7 @@ public class Main extends Application implements DynamicConstants {
                 // 120 Hz refresh rate
                 Duration.seconds(1 / REFRESH_RATE),
                 event -> {
-                    executeFrame();
+                    executeFrame(timeline);
                 }
         );
         // apply game loop to animator
@@ -145,7 +191,7 @@ public class Main extends Application implements DynamicConstants {
      * end game
      */
     public static void endGame() {
-        AI.writeElite();
+//        AI.writeElite();
         Object.global.clear();
         pane.getChildren().clear();
     }
@@ -153,27 +199,33 @@ public class Main extends Application implements DynamicConstants {
     /**
      * add player tanks
      */
-    public static void addPlayerTanks() {
-        player = new ObjectBuilder[]{
-                // player 1
-                new Player().setImageView(new ImageView(new Image("red_player.png")))
-                        .setPane(pane).addImageViewToPane()
-                        .setRotate(new Rotate()).addRotateToImageView()
-                        .setTranslate(new Translate()).addTranslateToImageView()
-                        .setTranslateToRandomNonOverlappingPosition(),
-                // player 2
-                new Player().setImageView(new ImageView(new Image("green_player.png")))
-                        .setPane(pane).addImageViewToPane()
-                        .setRotate(new Rotate()).addRotateToImageView()
-                        .setTranslate(new Translate()).addTranslateToImageView()
-                        .setTranslateToRandomNonOverlappingPosition(),
-                // player 3
-                new Player().setImageView(new ImageView(new Image("blue_player.png")))
-                        .setPane(pane).addImageViewToPane()
-                        .setRotate(new Rotate()).addRotateToImageView()
-                        .setTranslate(new Translate()).addTranslateToImageView()
-                        .setTranslateToRandomNonOverlappingPosition()
-        };
+    public static void addPlayerTanks(int numPlayers) {
+        player = new ObjectBuilder[numPlayers];
+        if(numPlayers >= 1) {
+            // player 1
+            player[0] = new Player().setImageView(new ImageView(new Image("red_player.png")))
+                    .setPane(pane).addImageViewToPane()
+                    .setRotate(new Rotate()).addRotateToImageView()
+                    .setTranslate(new Translate()).addTranslateToImageView()
+                    .setTranslateToRandomNonOverlappingPosition();
+        }
+        if(numPlayers >= 2) {
+            // player 2
+            player[1] = new Player().setImageView(new ImageView(new Image("green_player.png")))
+                    .setPane(pane).addImageViewToPane()
+                    .setRotate(new Rotate()).addRotateToImageView()
+                    .setTranslate(new Translate()).addTranslateToImageView()
+                    .setTranslateToRandomNonOverlappingPosition();
+        }
+        if(numPlayers >= 3){
+            //player 3
+            player[2] = new Player().setImageView(new ImageView(new Image("blue_player.png")))
+                    .setPane(pane).addImageViewToPane()
+                    .setRotate(new Rotate()).addRotateToImageView()
+                    .setTranslate(new Translate()).addTranslateToImageView()
+                    .setTranslateToRandomNonOverlappingPosition();
+        }
+
         for (Object object : player) {
             object.activate();
         }
@@ -184,12 +236,12 @@ public class Main extends Application implements DynamicConstants {
      */
     public static void addAITanks() {
         int ai_count = AI_COUNT;
-        /*if (new File(CACHE_PATH).isFile()) {
-            ai_count -= ELITE_COUNT;
-            AI.makeElite(pane);
-        }*/
+       // if (new File(CACHE_PATH).isFile()) {
+       //     ai_count -= ELITE_COUNT;
+       //     AI.makeElite(pane);
+      //  }
         for (int i = 0; i < ai_count; i++) {
-            new AI().setImageView(new ImageView(new Image("black_player.png")))
+            new Laika().setImageView(new ImageView(new Image("black_player.png")))
                     .setPane(pane).addImageViewToPane()
                     .setRotate(new Rotate()).addRotateToImageView()
                     .setTranslate(new Translate()).addTranslateToImageView()
@@ -202,7 +254,7 @@ public class Main extends Application implements DynamicConstants {
      * add bushes
      */
     public static void addBushes() {
-        for (int i = 0; i < BUSH_COUNT-5; i++) {
+        for (int i = 0; i < BUSH_COUNT; i++) {
             new Bush().setImageView(new ImageView(new Image("bush.png")))
                     .setPane(pane).addImageViewToPane()
                     .setRotate(new Rotate()).addRotateToImageView()
@@ -216,7 +268,7 @@ public class Main extends Application implements DynamicConstants {
      * add mud puddles
      */
     public static void addMudPuddles() {
-        for (int i = 0; i < MUD_COUNT-3; i++) {
+        for (int i = 0; i < MUD_COUNT; i++) {
             new Mud().setImageView(new ImageView(new Image("sand.png")))
                     .setPane(pane).addImageViewToPane()
                     .setRotate(new Rotate()).addRotateToImageView()
@@ -329,6 +381,13 @@ public class Main extends Application implements DynamicConstants {
         scene.setOnScroll( event -> {
             ((Tank)player[2]).fire = true;
         });
-
     }
+
+    /**
+     * menu method
+     */
+    public static void runMenu(){
+        s.runMenu(window);
+    }
+
 }
