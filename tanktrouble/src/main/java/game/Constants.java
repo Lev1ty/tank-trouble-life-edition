@@ -29,11 +29,11 @@ public interface Constants {
     /**
      * number of bushes
      */
-    int BUSH_COUNT = 40;
+    int BUSH_COUNT = 35;
     /**
      * number of mud puddles
      */
-    int MUD_COUNT = 10;
+    int MUD_COUNT = 7;
     /**
      * screen refresh multiplier
      */

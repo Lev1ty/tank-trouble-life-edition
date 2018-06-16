@@ -18,6 +18,8 @@ import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Translate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import java.util.*;
+import javafx.scene.input.MouseEvent;
 
 import java.io.File;
 import java.util.Observable;
@@ -41,6 +43,8 @@ public class Main extends Application implements DynamicConstants {
      *screen  object
      */
     private static Screens s;
+
+    private static int count = 0;
 
     public static void main(String[] args) {
         launch(args);
@@ -196,20 +200,32 @@ public class Main extends Application implements DynamicConstants {
      * add player tanks
      */
     public static void addPlayerTanks(int numPlayers) {
-        player = new ObjectBuilder[]{
-                // player 1
-                new Player().setImageView(new ImageView(new Image("red_player.png")))
-                        .setPane(pane).addImageViewToPane()
-                        .setRotate(new Rotate()).addRotateToImageView()
-                        .setTranslate(new Translate()).addTranslateToImageView()
-                        .setTranslateToRandomNonOverlappingPosition(),
-                // player 2
-                new Player().setImageView(new ImageView(new Image("green_player.png")))
-                        .setPane(pane).addImageViewToPane()
-                        .setRotate(new Rotate()).addRotateToImageView()
-                        .setTranslate(new Translate()).addTranslateToImageView()
-                        .setTranslateToRandomNonOverlappingPosition()
-        };
+        player = new ObjectBuilder[numPlayers];
+        if(numPlayers >= 1) {
+            // player 1
+            player[0] = new Player().setImageView(new ImageView(new Image("red_player.png")))
+                    .setPane(pane).addImageViewToPane()
+                    .setRotate(new Rotate()).addRotateToImageView()
+                    .setTranslate(new Translate()).addTranslateToImageView()
+                    .setTranslateToRandomNonOverlappingPosition();
+        }
+        if(numPlayers >= 2) {
+            // player 2
+            player[1] = new Player().setImageView(new ImageView(new Image("green_player.png")))
+                    .setPane(pane).addImageViewToPane()
+                    .setRotate(new Rotate()).addRotateToImageView()
+                    .setTranslate(new Translate()).addTranslateToImageView()
+                    .setTranslateToRandomNonOverlappingPosition();
+        }
+        if(numPlayers >= 3){
+            //player 3
+            player[2] = new Player().setImageView(new ImageView(new Image("blue_player.png")))
+                    .setPane(pane).addImageViewToPane()
+                    .setRotate(new Rotate()).addRotateToImageView()
+                    .setTranslate(new Translate()).addTranslateToImageView()
+                    .setTranslateToRandomNonOverlappingPosition();
+        }
+
         for (Object object : player) {
             object.activate();
         }
@@ -253,7 +269,7 @@ public class Main extends Application implements DynamicConstants {
      */
     public static void addMudPuddles() {
         for (int i = 0; i < MUD_COUNT; i++) {
-            new Mud().setImageView(new ImageView(new Image("mud.png")))
+            new Mud().setImageView(new ImageView(new Image("sand.png")))
                     .setPane(pane).addImageViewToPane()
                     .setRotate(new Rotate()).addRotateToImageView()
                     .setTranslate(new Translate()).addTranslateToImageView()
@@ -329,6 +345,41 @@ public class Main extends Application implements DynamicConstants {
                     ((Tank) player[1]).west = false;
                     break;
             }
+        });
+
+        scene.setOnMousePressed(event-> {
+
+            if (Math.abs( (180/Math.PI) * Math.atan( (event.getY()-((Tank)player[2]).translate.getY())/(event.getX()-((Tank)player[2]).translate.getX()) )%360 - (((Tank)player[2]).rotate.getAngle())%360) < 10) {
+                ((Tank)player[2]).east = false;
+                ((Tank)player[2]).west = false;
+            }
+            else if (Math.abs( (180/Math.PI) * Math.atan( (event.getY()-((Tank)player[2]).translate.getY())/(event.getX()-((Tank)player[2]).translate.getX()) )%360 - (((Tank)player[2]).rotate.getAngle())%360) > 180) {
+                ((Tank)player[2]).east = false;
+                ((Tank)player[2]).west = true;
+            }
+
+            else if (Math.abs( (180/Math.PI) * Math.atan( (event.getY()-((Tank)player[2]).translate.getY())/(event.getX()-((Tank)player[2]).translate.getX()) )%360 - (((Tank)player[2]).rotate.getAngle())%360) < 180) {
+                ((Tank)player[2]).west = false;
+                ((Tank)player[2]).east = true;
+            }
+
+            if (event.getX() - ((Tank)player[2]).translate.getX() <= 3 && event.getY() - ((Tank)player[2]).translate.getY() <= 3) {
+                ((Tank)player[2]).north = false;
+            }
+            else {
+                ((Tank)player[2]).north = true;
+            }
+        });
+
+        scene.setOnMouseReleased(
+                event -> {
+                    ((Tank)player[2]).north = false;
+                    ((Tank)player[2]).east = false;
+                    ((Tank)player[2]).west = false;
+                });
+
+        scene.setOnScroll( event -> {
+            ((Tank)player[2]).fire = true;
         });
     }
 
