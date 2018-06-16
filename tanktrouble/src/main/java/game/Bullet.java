@@ -32,7 +32,7 @@ public class Bullet extends DynamicObject {
     public void act() {
         super.act();
         // check lifetime
-        if (1.0 * (System.nanoTime() - timestamp) / 1000000000L > Constants.BULLET_DURATION) {
+        if (1.0 * (System.nanoTime() - timestamp) / 2000000000L > Constants.BULLET_DURATION) {
             kill();
         }
     }
