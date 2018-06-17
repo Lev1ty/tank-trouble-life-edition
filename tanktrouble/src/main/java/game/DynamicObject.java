@@ -18,7 +18,7 @@ public abstract class DynamicObject extends ObjectBuilder {
      */
     public DynamicObject() {
         super();
-        movementMultiplier = 1;
+        movementMultiplier = 1; //normal movement speed
     }
 
     @Override

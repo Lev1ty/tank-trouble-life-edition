@@ -120,23 +120,27 @@ public abstract class Tank extends DynamicObject {
     }
 
     @Override
+    //move forward
     protected void goNorth() {
         translate.setX(translate.getX() + movementMultiplier * TANK_MOVEMENT * Math.cos(rotate.getAngle() * Math.PI / 180));
         translate.setY(translate.getY() + movementMultiplier * TANK_MOVEMENT * Math.sin(rotate.getAngle() * Math.PI / 180));
     }
 
     @Override
+    //move backward
     protected void goSouth() {
         translate.setX(translate.getX() - movementMultiplier * TANK_MOVEMENT * Math.cos(rotate.getAngle() * Math.PI / 180));
         translate.setY(translate.getY() - movementMultiplier * TANK_MOVEMENT * Math.sin(rotate.getAngle() * Math.PI / 180));
     }
 
     @Override
+    //rotate clockwise
     protected void goEast() {
         rotate.setAngle(rotate.getAngle() + movementMultiplier * TURN_MULTIPLIER * TANK_MOVEMENT);
     }
 
     @Override
+    //rotate counterclockwise
     protected void goWest() {
         rotate.setAngle(rotate.getAngle() - movementMultiplier * TURN_MULTIPLIER * TANK_MOVEMENT);
     }

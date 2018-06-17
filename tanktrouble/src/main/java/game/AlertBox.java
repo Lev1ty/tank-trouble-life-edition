@@ -28,6 +28,7 @@ public class AlertBox {
         //create return button to return to menu
         Button returnButton = new Button("Return to Menu");
         //add functionality
+        //click return button
         returnButton.setOnAction(new EventHandler<ActionEvent>(){
             public void handle(ActionEvent e){
                 window.close();

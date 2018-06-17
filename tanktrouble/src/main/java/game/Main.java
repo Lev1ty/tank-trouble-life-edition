@@ -209,24 +209,24 @@ public class Main extends Application implements DynamicConstants {
         num = numPlayers;
         player = new ObjectBuilder[numPlayers];//create list of player objects
         if(numPlayers >= 1) {// number of players exceeds 1
-            // add player 1
-            player[0] = new Player().setImageView(new ImageView(new Image("red_player.png")))
+            // add player 1 to an unoccupied space
+            player[0] = new Player().setImageView(new ImageView(new Image("red_player.png"))) //image
                     .setPane(pane).addImageViewToPane()
                     .setRotate(new Rotate()).addRotateToImageView()
                     .setTranslate(new Translate()).addTranslateToImageView()
                     .setTranslateToRandomNonOverlappingPosition();
         }
         if(numPlayers >= 2) {//number of players exceeds 2
-            // add player 2
-            player[1] = new Player().setImageView(new ImageView(new Image("green_player.png")))
+            // add player 2 to an unoccupied space
+            player[1] = new Player().setImageView(new ImageView(new Image("green_player.png"))) //image
                     .setPane(pane).addImageViewToPane()
                     .setRotate(new Rotate()).addRotateToImageView()
                     .setTranslate(new Translate()).addTranslateToImageView()
                     .setTranslateToRandomNonOverlappingPosition();
         }
         if(numPlayers >= 3){//number of players exceeds 3
-            //add player 3
-            player[2] = new Player().setImageView(new ImageView(new Image("blue_player.png")))
+            //add player 3 to an unoccupied space
+            player[2] = new Player().setImageView(new ImageView(new Image("blue_player.png"))) //image
                     .setPane(pane).addImageViewToPane()
                     .setRotate(new Rotate()).addRotateToImageView()
                     .setTranslate(new Translate()).addTranslateToImageView()
@@ -245,8 +245,8 @@ public class Main extends Application implements DynamicConstants {
         int ai_count = AI_COUNT;//set number of AI
 
         for (int i = 0; i < ai_count; i++) {//for every AI
-            //add AI tank
-            new Laika().setImageView(new ImageView(new Image("black_player.png")))
+            //add AI tank to an unoccupied space
+            new Laika().setImageView(new ImageView(new Image("black_player.png"))) //image
                     .setPane(pane).addImageViewToPane()
                     .setRotate(new Rotate()).addRotateToImageView()
                     .setTranslate(new Translate()).addTranslateToImageView()
@@ -260,8 +260,8 @@ public class Main extends Application implements DynamicConstants {
      */
     public static void addBushes() {
         for (int i = 0; i < BUSH_COUNT; i++) {//for each bush
-            //add bush object
-            new Bush().setImageView(new ImageView(new Image("bush.png")))
+            //add bush object to an unoccupied space
+            new Bush().setImageView(new ImageView(new Image("bush.png"))) //image
                     .setPane(pane).addImageViewToPane()
                     .setRotate(new Rotate()).addRotateToImageView()
                     .setTranslate(new Translate()).addTranslateToImageView()
@@ -274,9 +274,9 @@ public class Main extends Application implements DynamicConstants {
      * add mud puddles
      */
     public static void addMudPuddles() {
-        for (int i = 0; i < MUD_COUNT; i++) {//for the number of mud puddles
-            //add the mud object
-            new Mud().setImageView(new ImageView(new Image("sand.png")))
+        for (int i = 0; i < MUD_COUNT; i++) { //for the number of mud puddles
+            //add the mud object to an unoccupied space
+            new Mud().setImageView(new ImageView(new Image("sand.png"))) //image
                     .setPane(pane).addImageViewToPane()
                     .setRotate(new Rotate()).addRotateToImageView()
                     .setTranslate(new Translate()).addTranslateToImageView()
@@ -289,7 +289,7 @@ public class Main extends Application implements DynamicConstants {
      * add listeners
      */
     public static void addListeners() {
-        if(num >= 1) {//number of players exceeds 1
+        if(num >= 1) { //number of players exceeds 1
             // key press
             scene.setOnKeyPressed(event -> {
                 switch (event.getCode()) {
@@ -311,7 +311,7 @@ public class Main extends Application implements DynamicConstants {
                 }
             });
 
-            // key release
+            // key release, cancel previous motion
             scene.setOnKeyReleased(event -> {
                 switch (event.getCode()) {
                     case UP:
@@ -329,7 +329,7 @@ public class Main extends Application implements DynamicConstants {
                 }
             });
         }
-        if(num >= 2) {//number of players exceeds 2
+        if(num >= 2) { //number of players exceeds 2
             // key press
             scene.setOnKeyPressed(event -> {
                 switch (event.getCode()) {
@@ -366,7 +366,7 @@ public class Main extends Application implements DynamicConstants {
                 }
             });
 
-            // key release
+            // key release, cancel previous motion
             scene.setOnKeyReleased(event -> {
                 switch (event.getCode()) {
                     case UP:
@@ -396,20 +396,28 @@ public class Main extends Application implements DynamicConstants {
                 }
             });
         }
-        if(num >= 3) {//number of players exceeds 3
+        if(num >= 3) { //number of players exceeds 3
             scene.setOnMousePressed(event -> {
 
+                //mouse in line with tank, move forward
                 if (Math.abs((180 / Math.PI) * Math.atan((event.getY() - ((Tank) player[2]).translate.getY()) / (event.getX() - ((Tank) player[2]).translate.getX())) % 360 - (((Tank) player[2]).rotate.getAngle()) % 360) < 10) {
                     ((Tank) player[2]).east = false;
                     ((Tank) player[2]).west = false;
-                } else if (Math.abs((180 / Math.PI) * Math.atan((event.getY() - ((Tank) player[2]).translate.getY()) / (event.getX() - ((Tank) player[2]).translate.getX())) % 360 - (((Tank) player[2]).rotate.getAngle()) % 360) > 180) {
+                }
+
+                //mouse to the left of tank
+                else if (Math.abs((180 / Math.PI) * Math.atan((event.getY() - ((Tank) player[2]).translate.getY()) / (event.getX() - ((Tank) player[2]).translate.getX())) % 360 - (((Tank) player[2]).rotate.getAngle()) % 360) > 180) {
                     ((Tank) player[2]).east = false;
                     ((Tank) player[2]).west = true;
-                } else if (Math.abs((180 / Math.PI) * Math.atan((event.getY() - ((Tank) player[2]).translate.getY()) / (event.getX() - ((Tank) player[2]).translate.getX())) % 360 - (((Tank) player[2]).rotate.getAngle()) % 360) < 180) {
+                }
+
+                //mouse to the right of tank
+                else if (Math.abs((180 / Math.PI) * Math.atan((event.getY() - ((Tank) player[2]).translate.getY()) / (event.getX() - ((Tank) player[2]).translate.getX())) % 360 - (((Tank) player[2]).rotate.getAngle()) % 360) < 180) {
                     ((Tank) player[2]).west = false;
                     ((Tank) player[2]).east = true;
                 }
 
+                //mouse within 3 units of tank
                 if (event.getX() - ((Tank) player[2]).translate.getX() <= 3 && event.getY() - ((Tank) player[2]).translate.getY() <= 3) {
                     ((Tank) player[2]).north = false;
                 } else {
@@ -417,6 +425,7 @@ public class Main extends Application implements DynamicConstants {
                 }
             });
 
+            //mouse release, cancel previous motion
             scene.setOnMouseReleased(
                     event -> {
                         ((Tank) player[2]).north = false;
@@ -424,6 +433,7 @@ public class Main extends Application implements DynamicConstants {
                         ((Tank) player[2]).west = false;
                     });
 
+            //scroll
             scene.setOnScroll(event -> {
                 ((Tank) player[2]).fire = true;
             });
