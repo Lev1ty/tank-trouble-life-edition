@@ -7,9 +7,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 /**
  * class to create a separate window when game ends
  */
@@ -23,10 +25,20 @@ public class AlertBox {
         window.setMinWidth(500);
         window.setMinHeight(300);
 
+        //initialize and create back button image
+        Image backButton = new Image ("back.png");
+        ImageView back = new ImageView (backButton);
+        //adjust image size
+        back.setFitHeight(80);
+        back.setFitWidth(180);
+
         //crete label to display message
         Label label = new Label(message);
+        //change display font size
+        label.setFont(Font.font("",20));
         //create return button to return to menu
-        Button returnButton = new Button("Return to Menu");
+        Button returnButton = new Button("", back);
+
         //add functionality
         //click return button
         returnButton.setOnAction(new EventHandler<ActionEvent>(){
